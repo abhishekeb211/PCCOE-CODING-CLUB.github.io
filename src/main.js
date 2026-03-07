@@ -25,8 +25,8 @@ const CLUB_DATA = {
   ],
 
   achievements: [
-    { badge: '🥇 1st Place', title: 'Smart India Hackathon (SIH)', desc: 'Past winners at IIT Gandhinagar. Facilitated 15 teams for SIH 2025-26, with 7 teams advancing past round one.', prize: '₹1,00,000', category: 'hackathon', image: '/images/sih-2024-win.jpg' },
-    { badge: '🥉 3rd Place', title: 'AMD AI Sprint — AI Premier League', desc: 'Team (Tushar Badlani, Yash Varma, Soham Mhatre) secured 3rd in Track 1 using Qwen-3:4B, Llama-3.2:3B, LoRA, and dynamic K-shot prompting on AMD MI300x with 192GB VRAM.', prize: '₹50,000', category: 'hackathon', image: '/images/amd-ai-sprint.jpg' },
+    { badge: '🥇 1st Place', title: 'Smart India Hackathon (SIH)', desc: 'Past winners at IIT Gandhinagar. Facilitated 15 teams for SIH 2025-26, with 7 teams advancing past round one.', prize: '₹1,00,000', category: 'hackathon', image: './images/sih-2024-win.jpg' },
+    { badge: '🥉 3rd Place', title: 'AMD AI Sprint — AI Premier League', desc: 'Team (Tushar Badlani, Yash Varma, Soham Mhatre) secured 3rd in Track 1 using Qwen-3:4B, Llama-3.2:3B, LoRA, and dynamic K-shot prompting on AMD MI300x with 192GB VRAM.', prize: '₹50,000', category: 'hackathon', image: './images/amd-ai-sprint.jpg' },
     { badge: '🎯 Top Performers', title: 'Competitive Coding Excellence', desc: 'Active participation and top rankings on Codeforces, LeetCode, and CodeChef. Members consistently preparing for ICPC Regionals.', prize: null, category: 'coding' },
     { badge: '🚀 Hackathon Selection', title: 'Indradhanu IGC Hackathon', desc: '4 teams successfully selected for round two after rigorous preliminary evaluations.', prize: null, category: 'hackathon' },
     { badge: '💼 Placements', title: 'Industry Placements & Internships', desc: 'Members secured roles and SaaS internships at Google, CrowdStrike, ConnectWise, Quick Heal, PTC, Addepar, EQ Technologic, and Josh Software.', prize: null, category: 'opensource' },
@@ -35,7 +35,7 @@ const CLUB_DATA = {
   ],
 
   events: [
-    { date: 'Jul 2025', title: 'DSA & Placement Guidance Session', desc: 'Expert session by Vivek Gupta (AlgoZenith Founder, Ex-Google, ICPC World Finalist) on placement preparation and structured learning across DSA, CP, and Web Dev. Held at MECH Seminar Hall.', tag: 'Speaker', upcoming: false, image: '/images/dsa-session.jpg' },
+    { date: 'Jul 2025', title: 'DSA & Placement Guidance Session', desc: 'Expert session by Vivek Gupta (AlgoZenith Founder, Ex-Google, ICPC World Finalist) on placement preparation and structured learning across DSA, CP, and Web Dev. Held at MECH Seminar Hall.', tag: 'Speaker', upcoming: false, image: './images/dsa-session.jpg' },
     { date: 'Aug 2025', title: 'Algo Arena — DSA Contest', desc: 'Internal coding competition covering advanced DSA topics. Timed rounds with increasing difficulty.', tag: 'Contest', upcoming: true },
     { date: 'Sep 2025', title: 'Web3 & Blockchain Workshop', desc: 'Two-day hands-on workshop on smart contracts, Solidity, and decentralized app development.', tag: 'Workshop', upcoming: true },
     { date: 'Sep 2025', title: 'CTF Bootcamp — CyberSec Week', desc: 'Intensive cybersecurity bootcamp with live CTF challenges, covering forensics, web exploitation, and crypto.', tag: 'Bootcamp', upcoming: true },
@@ -432,7 +432,7 @@ function renderHomePage(app) {
         </div>
 
         <div class="hero-image-side reveal delay-3" style="flex: 1; display: flex; justify-content: center; align-items: center;">
-          <img src="/images/ai-hero.png" alt="Futuristic Coding Workstation" style="width: 100%; max-width: 600px; border-radius: 20px; box-shadow: 0 0 40px rgba(0, 212, 255, 0.15), 0 0 80px rgba(124, 58, 237, 0.1); border: 1px solid rgba(255, 255, 255, 0.05); animation: float 6s ease-in-out infinite;" />
+          <img src="./images/ai-hero.png" alt="Futuristic Coding Workstation" style="width: 100%; max-width: 600px; border-radius: 20px; box-shadow: 0 0 40px rgba(0, 212, 255, 0.15), 0 0 80px rgba(124, 58, 237, 0.1); border: 1px solid rgba(255, 255, 255, 0.05); animation: float 6s ease-in-out infinite;" />
         </div>
 
       </div>
@@ -469,13 +469,13 @@ function renderAboutPage(app) {
             </p>
           </div>
           <div style="flex: 1; display: flex; justify-content: center;">
-            <img src="/images/about-illustration.png" alt="Collaborative Hacker Community" style="width: 100%; max-width: 500px; border-radius: 20px; box-shadow: 0 0 50px rgba(124, 58, 237, 0.15); animation: float 6s ease-in-out infinite;" />
+            <img src="./images/about-illustration.png" alt="Collaborative Hacker Community" style="width: 100%; max-width: 500px; border-radius: 20px; box-shadow: 0 0 50px rgba(124, 58, 237, 0.15); animation: float 6s ease-in-out infinite;" />
           </div>
         </div>
 
         <div class="glass-card reveal" style="padding: 3rem; margin-bottom: 3rem; text-align: center;">
           <h2 style="margin-bottom: 2rem; font-size: 1.5rem;">🚀 Technology Landscape</h2>
-          <img src="/images/tech-wordcloud.png" alt="Technology Word Cloud" style="width: 100%; max-width: 800px; border-radius: 12px;" loading="lazy" />
+          <img src="./images/tech-wordcloud.png" alt="Technology Word Cloud" style="width: 100%; max-width: 800px; border-radius: 12px;" loading="lazy" />
         </div>
 
         <div class="about-grid" style="margin-bottom: 3rem;">
@@ -535,7 +535,7 @@ function renderAboutPage(app) {
             `).join('')}
           </div>
           <div style="margin-top: 3rem;" class="reveal">
-            <img src="/images/poster.png" alt="PCCoE Coding Club Poster" class="poster-display" loading="lazy" />
+            <img src="./images/poster.png" alt="PCCoE Coding Club Poster" class="poster-display" loading="lazy" />
           </div>
         </div>
       </div>
@@ -729,7 +729,7 @@ function renderBlogsPage(app) {
 
   app.innerHTML = `
     <div class="page-header" style="position: relative; overflow: hidden; padding: 6rem 0;">
-      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('/images/blog-header.png') center/cover no-repeat; opacity: 0.15; z-index: -1;"></div>
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('./images/blog-header.png') center/cover no-repeat; opacity: 0.15; z-index: -1;"></div>
       <div class="container">
         <div class="section-badge">Knowledge Hub</div>
         <h1 class="section-title" style="margin-top: 1rem;">Our <span class="gradient-text">Blog</span></h1>
@@ -990,10 +990,10 @@ function renderJoinPage(app) {
             <div class="glass-card reveal delay-2" style="padding: 2rem; margin-bottom: 2rem;">
               <h2 style="font-size: 1.4rem; text-align: center;">📱 Quick Registration</h2>
               <div class="qr-section">
-                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Scan the QR code to register from your mobile device.</p>
-                <img src="/images/registration-qr.png" alt="Registration QR Code" loading="lazy" />
-              </div>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">Scan the QR to join our community group instantly.</p>
+              <img src="./images/qr-code.png" alt="Join Community QR" style="width: 150px; height: 150px; border-radius: 12px; margin: 0 auto; display: block;" />
             </div>
+          </div>
 
             <!-- FAQs -->
             <div class="glass-card reveal delay-3" style="padding: 2.5rem;">
