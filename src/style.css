@@ -18,6 +18,8 @@
   --text-primary: #f0f0f5;
   --text-secondary: #a0a0b5;
   --text-muted: #6b6b80;
+  --bg-nav: rgba(10, 10, 26, 0.85);
+  --text-nav: #f0f0f5;
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-border-hover: rgba(255, 255, 255, 0.15);
   --radius: 16px;
@@ -46,6 +48,8 @@
   --text-primary: #111827;
   --text-secondary: #4b5563;
   --text-muted: #9ca3af;
+  --bg-nav: #0a0a0a;
+  --text-nav: #ffffff;
   --glass-border: #e5e7eb;
   --glass-border-hover: #d1d5db;
   --shadow-glow: 0 0 30px rgba(26, 86, 219, 0.1);
@@ -65,6 +69,8 @@
   --text-primary: #ff4d4d;
   --text-secondary: #b30000;
   --text-muted: #660000;
+  --bg-nav: #000000;
+  --text-nav: #ff4d4d;
   --glass-border: rgba(255, 0, 0, 0.2);
   --glass-border-hover: rgba(255, 0, 0, 0.4);
   --shadow-glow: 0 0 40px rgba(255, 0, 0, 0.25);
@@ -289,15 +295,15 @@ h6 {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(10, 10, 26, 0.8);
+  background: var(--bg-nav);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--glass-border);
-  transition: var(--transition);
+  transition: background var(--transition-theme), border-color var(--transition-theme), box-shadow var(--transition-theme);
 }
 
 #main-header.scrolled {
-  background: var(--bg-primary);
+  background: var(--bg-nav);
   opacity: 0.98;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
@@ -316,14 +322,14 @@ h6 {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: var(--text-primary);
+  color: var(--text-nav);
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 1.25rem;
 }
 
 .nav-logo:hover {
-  color: var(--text-primary);
+  color: var(--text-nav);
 }
 
 .logo-icon {
@@ -370,7 +376,7 @@ h6 {
 }
 
 .nav-link {
-  color: var(--text-secondary);
+  color: var(--text-nav);
   padding: 0.5rem 1rem;
   border-radius: var(--radius-sm);
   font-size: 0.9rem;
