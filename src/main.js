@@ -279,12 +279,16 @@ function router() {
     });
 
     // Special handling for particles based on theme
-    const canvas = document.getElementById('particles-canvas');
-    if (canvas) {
-      if (theme === 'light') {
-        canvas.style.opacity = '0.05';
-      } else {
-        canvas.style.opacity = '1';
+    if (typeof updateParticles === 'function') {
+      updateParticles(theme);
+    } else {
+      const canvas = document.getElementById('particles-canvas');
+      if (canvas) {
+        if (theme === 'light') {
+          canvas.style.opacity = '0.05';
+        } else {
+          canvas.style.opacity = '1';
+        }
       }
     }
   }
@@ -1099,6 +1103,14 @@ function initParticles() {
   function createParticles() {
     particles = [];
     const count = Math.min(Math.floor((canvas.width * canvas.height) / 15000), 80);
+    const theme = document.documentElement.getAttribute('data-theme') || 'glass';
+    const colors = {
+      glass: ['0, 212, 255', '124, 58, 237'],
+      light: ['26, 86, 219', '79, 70, 229'],
+      hacker: ['255, 0, 0', '139, 0, 0']
+    };
+    const currentColors = colors[theme] || colors.glass;
+
     for (let i = 0; i < count; i++) {
       particles.push({
         x: Math.random() * canvas.width,
@@ -1107,10 +1119,16 @@ function initParticles() {
         vy: (Math.random() - 0.5) * 0.4,
         radius: Math.random() * 2 + 0.5,
         opacity: Math.random() * 0.5 + 0.1,
-        color: Math.random() > 0.5 ? '0, 212, 255' : '124, 58, 237'
+        color: currentColors[Math.floor(Math.random() * currentColors.length)]
       });
     }
   }
+
+  // Exposed globally for theme changes
+  window.updateParticles = (newTheme) => {
+    canvas.style.opacity = newTheme === 'light' ? '0.15' : '1';
+    createParticles();
+  };
 
   function drawParticles() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -1148,10 +1166,12 @@ function initParticles() {
         const ddy = p.y - p2.y;
         const d = Math.sqrt(ddx * ddx + ddy * ddy);
         if (d < 120) {
+          const theme = document.documentElement.getAttribute('data-theme') || 'glass';
+          const strokeColor = theme === 'hacker' ? '255, 0, 0' : (theme === 'light' ? '26, 86, 219' : '0, 212, 255');
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(p2.x, p2.y);
-          ctx.strokeStyle = `rgba(0, 212, 255, ${0.06 * (1 - d / 120)})`;
+          ctx.strokeStyle = `rgba(${strokeColor}, ${0.1 * (1 - d / 120)})`;
           ctx.lineWidth = 0.5;
           ctx.stroke();
         }

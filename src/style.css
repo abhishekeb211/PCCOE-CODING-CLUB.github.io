@@ -3,6 +3,7 @@
    =================================================================== */
 
 /* --- CSS Variables / Design Tokens --- */
+/* --- CSS Variables / Design Tokens --- */
 :root {
   /* Default Theme: Modern Glass */
   --bg-primary: #0a0a1a;
@@ -25,7 +26,8 @@
   --shadow-glow: 0 0 40px rgba(0, 212, 255, 0.15);
   --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.3);
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-theme: 0.6s ease;
+  --transition-slow: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
   --font-heading: 'Outfit', 'Inter', sans-serif;
   --nav-height: 72px;
@@ -33,39 +35,40 @@
 
 /* Light Theme: White Professional */
 [data-theme="light"] {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --bg-card: rgba(0, 0, 0, 0.03);
-  --bg-card-hover: rgba(0, 0, 0, 0.06);
-  --accent-1: #0056b3;
-  --accent-2: #4a90e2;
-  --accent-3: #2c3e50;
-  --text-primary: #1a1a1a;
-  --text-secondary: #4a4a4a;
-  --text-muted: #718096;
-  --glass-border: rgba(0, 0, 0, 0.08);
-  --glass-border-hover: rgba(0, 0, 0, 0.12);
-  --shadow-glow: 0 0 30px rgba(0, 86, 179, 0.1);
-  --shadow-card: 0 10px 25px rgba(0, 0, 0, 0.05);
+  --bg-primary: #fcfcfd;
+  --bg-secondary: #f3f4f6;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f9fafb;
+  --accent-1: #1a56db;
+  --accent-2: #4f46e5;
+  --accent-3: #1e293b;
+  --accent-gradient: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #9ca3af;
+  --glass-border: #e5e7eb;
+  --glass-border-hover: #d1d5db;
+  --shadow-glow: 0 0 30px rgba(26, 86, 219, 0.1);
+  --shadow-card: 0 10px 25px rgba(0, 0, 0, 0.04), 0 4px 10px rgba(0, 0, 0, 0.02);
 }
 
 /* Hacker Theme: Dark Black / Bloody Red */
 [data-theme="hacker"] {
   --bg-primary: #000000;
-  --bg-secondary: #050000;
-  --bg-card: rgba(255, 0, 0, 0.03);
-  --bg-card-hover: rgba(255, 0, 0, 0.08);
+  --bg-secondary: #0a0000;
+  --bg-card: rgba(20, 0, 0, 0.6);
+  --bg-card-hover: rgba(40, 0, 0, 0.8);
   --accent-1: #ff0000;
   --accent-2: #8b0000;
   --accent-3: #4b0000;
-  --accent-gradient: linear-gradient(135deg, var(--accent-1), var(--accent-2));
-  --text-primary: #ff0000;
-  --text-secondary: #8b0000;
-  --text-muted: #4b0000;
-  --glass-border: rgba(255, 0, 0, 0.15);
-  --glass-border-hover: rgba(255, 0, 0, 0.3);
-  --shadow-glow: 0 0 40px rgba(255, 0, 0, 0.2);
-  --shadow-card: 0 0 20px rgba(255, 0, 0, 0.1);
+  --accent-gradient: linear-gradient(135deg, #ff0000, #4b0000);
+  --text-primary: #ff4d4d;
+  --text-secondary: #b30000;
+  --text-muted: #660000;
+  --glass-border: rgba(255, 0, 0, 0.2);
+  --glass-border-hover: rgba(255, 0, 0, 0.4);
+  --shadow-glow: 0 0 40px rgba(255, 0, 0, 0.25);
+  --shadow-card: 0 0 15px rgba(255, 0, 0, 0.15);
   --font-body: 'Courier New', Courier, monospace;
 }
 
@@ -90,6 +93,11 @@ body {
   line-height: 1.7;
   overflow-x: hidden;
   min-height: 100vh;
+  transition: background var(--transition-theme), color var(--transition-theme);
+}
+
+* {
+  transition: border-color var(--transition-theme), background-color var(--transition-theme), box-shadow var(--transition-theme);
 }
 
 a {
@@ -182,6 +190,47 @@ h6 {
   box-shadow: 0 0 15px var(--accent-1);
 }
 
+/* --- Theme Effects --- */
+[data-theme="hacker"] .hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2;
+  background-size: 100% 4px, 3px 100%;
+  pointer-events: none;
+  animation: scanlines 0.2s linear infinite;
+}
+
+@keyframes scanlines {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 0 4px;
+  }
+}
+
+[data-theme="hacker"] .hero-title {
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+[data-theme="light"] .glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: none;
+}
+
+[data-theme="light"] .glass-card:hover {
+  border-color: var(--accent-1);
+  transform: translateY(-5px);
+}
+
 /* --- Scroll Reveal --- */
 #scroll-top {
   position: fixed;
@@ -248,7 +297,8 @@ h6 {
 }
 
 #main-header.scrolled {
-  background: rgba(10, 10, 26, 0.95);
+  background: var(--bg-primary);
+  opacity: 0.98;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
