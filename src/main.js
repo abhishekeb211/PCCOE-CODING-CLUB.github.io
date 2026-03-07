@@ -433,8 +433,8 @@ function renderHomePage(app) {
           </div>
           
           <h1 class="hero-title reveal delay-1">
-            <span class="line">PCCoE</span>
-            <span class="line gradient-text">Coding Club</span>
+            <span class="line">PCCOE</span>
+            <span class="line gradient-text">CODING CLUB</span>
           </h1>
           
           <div class="hero-tagline reveal delay-2">
