@@ -4,6 +4,7 @@
 
 /* --- CSS Variables / Design Tokens --- */
 :root {
+  /* Default Theme: Modern Glass */
   --bg-primary: #0a0a1a;
   --bg-secondary: #0f0f2a;
   --bg-card: rgba(255, 255, 255, 0.04);
@@ -28,6 +29,44 @@
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
   --font-heading: 'Outfit', 'Inter', sans-serif;
   --nav-height: 72px;
+}
+
+/* Light Theme: White Professional */
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-card: rgba(0, 0, 0, 0.03);
+  --bg-card-hover: rgba(0, 0, 0, 0.06);
+  --accent-1: #0056b3;
+  --accent-2: #4a90e2;
+  --accent-3: #2c3e50;
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --text-muted: #718096;
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-border-hover: rgba(0, 0, 0, 0.12);
+  --shadow-glow: 0 0 30px rgba(0, 86, 179, 0.1);
+  --shadow-card: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* Hacker Theme: Dark Black / Matrix */
+[data-theme="hacker"] {
+  --bg-primary: #000000;
+  --bg-secondary: #050505;
+  --bg-card: rgba(0, 255, 65, 0.03);
+  --bg-card-hover: rgba(0, 255, 65, 0.08);
+  --accent-1: #00ff41;
+  --accent-2: #008f11;
+  --accent-3: #003b00;
+  --accent-gradient: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  --text-primary: #00ff41;
+  --text-secondary: #008f11;
+  --text-muted: #003b00;
+  --glass-border: rgba(0, 255, 65, 0.15);
+  --glass-border-hover: rgba(0, 255, 65, 0.3);
+  --shadow-glow: 0 0 40px rgba(0, 255, 65, 0.2);
+  --shadow-card: 0 0 20px rgba(0, 255, 65, 0.1);
+  --font-body: 'Courier New', Courier, monospace;
 }
 
 /* --- Reset & Base --- */
@@ -106,7 +145,44 @@ h6 {
   opacity: 1;
 }
 
-/* --- Scroll to Top --- */
+/* --- Theme Switcher --- */
+.theme-switch-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  background: var(--bg-card);
+  padding: 0.4rem;
+  border-radius: 100px;
+  border: 1px solid var(--glass-border);
+  margin-left: 1.5rem;
+}
+
+.theme-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  transition: var(--transition);
+  opacity: 0.5;
+}
+
+.theme-btn:hover {
+  opacity: 0.8;
+  background: var(--bg-card-hover);
+}
+
+.theme-btn.active {
+  opacity: 1;
+  background: var(--accent-1);
+  box-shadow: 0 0 15px var(--accent-1);
+}
+
+/* --- Scroll Reveal --- */
 #scroll-top {
   position: fixed;
   bottom: 2rem;

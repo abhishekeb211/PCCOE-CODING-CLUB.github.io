@@ -248,17 +248,57 @@ function router() {
     // Setup 3D tilt on cards
     setTimeout(setupTiltCards, 300);
   }, 200);
-}
+  // Setup theme
+  initTheme();
 
-function updateActiveNav(path) {
-  document.querySelectorAll('.nav-link').forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === '#' + path || (path === '/' && href === '#/')) {
-      link.classList.add('active');
-    } else {
-      link.classList.remove('active');
+  // ========================= THEME SYSTEM =========================
+
+  function initTheme() {
+    const savedTheme = localStorage.getItem('pccoe-theme') || 'glass';
+    setTheme(savedTheme);
+
+    document.querySelectorAll('.theme-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const theme = btn.dataset.themeSet;
+        setTheme(theme);
+      });
+    });
+  }
+
+  function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('pccoe-theme', theme);
+
+    // Update button active states
+    document.querySelectorAll('.theme-btn').forEach(btn => {
+      if (btn.dataset.themeSet === theme) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+
+    // Special handling for particles based on theme
+    const canvas = document.getElementById('particles-canvas');
+    if (canvas) {
+      if (theme === 'light') {
+        canvas.style.opacity = '0.05';
+      } else {
+        canvas.style.opacity = '1';
+      }
     }
-  });
+  }
+
+  function updateActiveNav(path) {
+    document.querySelectorAll('.nav-link').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === '#' + path || (path === '/' && href === '#/')) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
 }
 
 // ========================= SCROLL REVEAL =========================
