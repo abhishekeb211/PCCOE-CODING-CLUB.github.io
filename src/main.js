@@ -384,214 +384,57 @@ function renderHomePage(app) {
       <div class="hero-float">&lt;div/&gt;</div>
       <div class="hero-float">git push</div>
       
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span class="dot"></span>
-          Open for Registrations — 2025-26
-        </div>
+      <div class="hero-content" style="display: flex; gap: 4rem; align-items: center; justify-content: space-between; height: 100%; position: relative; z-index: 10;">
         
-        <h1 class="hero-title">
-          <span class="line">PCCoE</span>
-          <span class="line gradient-text">Coding Club</span>
-        </h1>
-        
-        <div class="hero-tagline">
-          <span class="typed-text">Code. Compete. Create.</span>
-        </div>
-        
-        <p class="hero-description">
-          A student-driven community focused on competitive programming, hackathons, 
-          cybersecurity, open-source development, and research.
-        </p>
-        
-        <div class="hero-buttons">
-          <a href="#/join" class="btn btn-primary">Join the Club →</a>
-          <a href="#/about" class="btn btn-outline">Learn More</a>
-        </div>
-        
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <div class="stat-number" data-count="${stats.members}" data-suffix="+">0</div>
-            <div class="stat-label">Members</div>
+        <div class="hero-text-side" style="flex: 1; max-width: 600px;">
+          <div class="hero-badge reveal">
+            <span class="dot"></span>
+            Open for Registrations — 2025-26
           </div>
-          <div class="hero-stat">
-            <div class="stat-number" data-count="${stats.events}" data-suffix="+">0</div>
-            <div class="stat-label">Events</div>
+          
+          <h1 class="hero-title reveal delay-1">
+            <span class="line">PCCoE</span>
+            <span class="line gradient-text">Coding Club</span>
+          </h1>
+          
+          <div class="hero-tagline reveal delay-2">
+            <span class="typed-text">Code. Compete. Create.</span>
           </div>
-          <div class="hero-stat">
-            <div class="stat-number" data-count="${stats.wins}" data-suffix="+">0</div>
-            <div class="stat-label">Wins</div>
+          
+          <p class="hero-description reveal delay-3">
+            A student-driven community focused on competitive programming, hackathons, 
+            cybersecurity, open-source development, and research.
+          </p>
+          
+          <div class="hero-buttons reveal delay-4">
+            <a href="#/join" class="btn btn-primary">Join the Club →</a>
+            <a href="#/about" class="btn btn-outline">Learn More</a>
           </div>
-          <div class="hero-stat">
-            <div class="stat-number" data-count="${stats.projects}" data-suffix="+">0</div>
-            <div class="stat-label">Projects</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT SNAPSHOT -->
-    <section class="section">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="section-badge">Who We Are</div>
-          <h2 class="section-title">Empowering <span class="gradient-text">Future Tech Leaders</span></h2>
-          <p class="section-subtitle">We create a strong ecosystem where students build real-world skills and gain exposure to innovation, research, and recruitment pathways.</p>
-        </div>
-        
-        <div class="about-grid">
-          <div class="glass-card about-card reveal delay-1">
-            <div class="card-number">01</div>
-            <h3>Our Vision</h3>
-            <p>To build a strong and inclusive technical community that nurtures problem-solving, innovation, and technical excellence at national and international levels.</p>
-          </div>
-          <div class="glass-card about-card reveal delay-2">
-            <div class="card-number">02</div>
-            <h3>Our Mission</h3>
-            <p>Equipping students with programming, cybersecurity, and development skills through competitions, workshops, mentorship, and collaborative innovation.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOCUS AREAS -->
-    <section class="section">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="section-badge">What We Do</div>
-          <h2 class="section-title">Our <span class="gradient-text">Focus Areas</span></h2>
-          <p class="section-subtitle">Seven key verticals driving our community's growth and impact.</p>
-        </div>
-        
-        <div class="focus-grid">
-          ${focusAreas.map((area, i) => `
-            <div class="glass-card focus-card reveal delay-${i + 1}">
-              <div class="card-icon">${area.icon}</div>
-              <h3>${area.title}</h3>
-              <p>${area.desc}</p>
+          
+          <div class="hero-stats reveal delay-5" style="margin-top: 3rem;">
+            <div class="hero-stat">
+              <div class="stat-number" data-count="${stats.members}" data-suffix="+">0</div>
+              <div class="stat-label" style="font-size: 0.8rem;">Members</div>
             </div>
-          `).join('')}
-        </div>
-      </div>
-    </section>
-
-    <!-- STATS BAR -->
-    <section class="section stats-section">
-      <div class="container">
-        <div class="stats-grid reveal">
-          <div class="stat-item">
-            <div class="stat-number" data-count="${stats.members}" data-suffix="+">0</div>
-            <div class="stat-label">Active Members</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number" data-count="${stats.events}" data-suffix="+">0</div>
-            <div class="stat-label">Events Organized</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number" data-count="${stats.wins}" data-suffix="+">0</div>
-            <div class="stat-label">Competition Wins</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number" data-count="${stats.projects}" data-suffix="+">0</div>
-            <div class="stat-label">Projects Built</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ACHIEVEMENTS PREVIEW -->
-    <section class="section">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="section-badge">Track Record</div>
-          <h2 class="section-title">Our <span class="gradient-text">Achievements</span></h2>
-          <p class="section-subtitle">Highlights from our journey of excellence and innovation.</p>
-        </div>
-        
-        <div class="achievements-grid">
-          ${achievements.slice(0, 4).map((a, i) => `
-            <div class="glass-card achievement-card reveal delay-${i + 1}" data-category="${a.category}">
-              ${a.image ? `<img src="${a.image}" alt="${a.title}" class="card-image" loading="lazy" />` : ''}
-              <div class="card-badge">${a.badge}</div>
-              <h3>${a.title}</h3>
-              <p>${a.desc}</p>
-              ${a.prize ? `<div class="prize">🏆 Prize: ${a.prize}</div>` : ''}
+            <div class="hero-stat">
+              <div class="stat-number" data-count="${stats.events}" data-suffix="+">0</div>
+              <div class="stat-label" style="font-size: 0.8rem;">Events</div>
             </div>
-          `).join('')}
-        </div>
-        
-        <div style="text-align: center; margin-top: 2.5rem;" class="reveal">
-          <a href="#/achievements" class="btn btn-outline">View All Achievements →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- UPCOMING EVENTS -->
-    <section class="section" style="background: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="section-badge">What's Next</div>
-          <h2 class="section-title">Upcoming <span class="gradient-text">Events</span></h2>
-          <p class="section-subtitle">Mark your calendars for these exciting opportunities.</p>
-        </div>
-        
-        <div class="events-grid">
-          ${events.filter(e => e.upcoming).map((e, i) => `
-            <div class="glass-card event-card reveal delay-${i + 1}">
-              ${e.image ? `<img src="${e.image}" alt="${e.title}" class="card-image" loading="lazy" />` : ''}
-              <div class="event-date">📅 ${e.date}</div>
-              <h3>${e.title}</h3>
-              <p>${e.desc}</p>
-              <span class="event-tag">${e.tag}</span>
+            <div class="hero-stat">
+              <div class="stat-number" data-count="${stats.wins}" data-suffix="+">0</div>
+              <div class="stat-label" style="font-size: 0.8rem;">Wins</div>
             </div>
-          `).join('')}
-        </div>
-        
-        <div style="text-align: center; margin-top: 2.5rem;" class="reveal">
-          <a href="#/events" class="btn btn-outline">View All Events →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- LATEST BLOGS -->
-    <section class="section">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="section-badge">From Our Blog</div>
-          <h2 class="section-title">Latest <span class="gradient-text">Articles</span></h2>
-          <p class="section-subtitle">Stories, tutorials, and insights from our community.</p>
-        </div>
-        
-        <div class="blog-grid">
-          ${blogs.slice(0, 3).map((b, i) => `
-            <div class="glass-card blog-card reveal delay-${i + 1}">
-              <div class="blog-image" style="background: ${b.gradient};"></div>
-              <div class="blog-content">
-                <div class="blog-meta">
-                  <span>✍️ ${b.meta.author}</span>
-                  <span>📖 ${b.meta.readTime}</span>
-                </div>
-                <h3>${b.title}</h3>
-                <p>${b.desc}</p>
-              </div>
+            <div class="hero-stat">
+              <div class="stat-number" data-count="${stats.projects}" data-suffix="+">0</div>
+              <div class="stat-label" style="font-size: 0.8rem;">Projects</div>
             </div>
-          `).join('')}
+          </div>
         </div>
-        
-        <div style="text-align: center; margin-top: 2.5rem;" class="reveal">
-          <a href="#/blogs" class="btn btn-outline">Read All Blogs →</a>
-        </div>
-      </div>
-    </section>
 
-    <!-- CTA BANNER -->
-    <section class="section">
-      <div class="container">
-        <div class="cta-banner reveal">
-          <h2>Ready to <span class="gradient-text">Level Up?</span></h2>
-          <p>Join 200+ students who are coding, competing, and creating the future.</p>
-          <a href="#/join" class="btn btn-primary">Join PCCoE Coding Club →</a>
+        <div class="hero-image-side reveal delay-3" style="flex: 1; display: flex; justify-content: center; align-items: center;">
+          <img src="/images/ai-hero.png" alt="Futuristic Coding Workstation" style="width: 100%; max-width: 600px; border-radius: 20px; box-shadow: 0 0 40px rgba(0, 212, 255, 0.15), 0 0 80px rgba(124, 58, 237, 0.1); border: 1px solid rgba(255, 255, 255, 0.05); animation: float 6s ease-in-out infinite;" />
         </div>
+
       </div>
     </section>
   `;
@@ -612,19 +455,27 @@ function renderAboutPage(app) {
     <!-- Club Overview -->
     <section class="section" style="padding-top: 2rem;">
       <div class="container">
-        <div class="glass-card reveal" style="padding: 3rem; margin-bottom: 3rem;">
-          <h2 style="margin-bottom: 1.5rem; font-size: 1.5rem;">🎯 Club Overview</h2>
-          <img src="/images/tech-wordcloud.png" alt="Technology Word Cloud" class="about-image" loading="lazy" />
-          <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8;">
-            The <strong style="color: var(--text-primary);">PCCoE Coding Club</strong> is a dynamic student-driven community focused on 
-            <strong style="color: var(--accent-1);">competitive programming, hackathons, cybersecurity, open-source development, research projects, and industry-ready problem solving</strong>. 
-            The club helps students explore technology beyond the classroom through hands-on learning, mentorship, collaborative projects, and high-impact competitions.
-          </p>
-          <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; margin-top: 1rem;">
-            We actively prepare students for national and international opportunities such as 
-            <strong style="color: var(--text-primary);">ICPC, GSoC, CTFs, IEEE Xtreme, hackathons, coding contests, and challenge-based hiring competitions</strong>. 
-            By combining practice, peer learning, expert guidance, and competition exposure, we empower students to grow into confident developers, problem solvers, and future tech leaders.
-          </p>
+        <div class="about-hero reveal" style="display: flex; gap: 4rem; align-items: center; margin-bottom: 4rem;">
+          <div style="flex: 1.2;">
+            <div class="section-badge">Our Story</div>
+            <h2 class="section-title">A Technical <span class="gradient-text">Ecosystem</span></h2>
+            <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">
+              The <strong style="color: var(--text-primary);">PCCoE Coding Club</strong> is a dynamic student-driven community focused on 
+              <strong style="color: var(--accent-1);">competitive programming, hackathons, cybersecurity, open-source development, research projects, and industry-ready problem solving</strong>. 
+            </p>
+            <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8; margin-top: 1.25rem;">
+              We actively prepare students for national and international opportunities such as 
+              <strong style="color: var(--text-primary);">ICPC, GSoC, CTFs, IEEE Xtreme, and challenge-based hiring competitions</strong>.
+            </p>
+          </div>
+          <div style="flex: 1; display: flex; justify-content: center;">
+            <img src="/images/about-illustration.png" alt="Collaborative Hacker Community" style="width: 100%; max-width: 500px; border-radius: 20px; box-shadow: 0 0 50px rgba(124, 58, 237, 0.15); animation: float 6s ease-in-out infinite;" />
+          </div>
+        </div>
+
+        <div class="glass-card reveal" style="padding: 3rem; margin-bottom: 3rem; text-align: center;">
+          <h2 style="margin-bottom: 2rem; font-size: 1.5rem;">🚀 Technology Landscape</h2>
+          <img src="/images/tech-wordcloud.png" alt="Technology Word Cloud" style="width: 100%; max-width: 800px; border-radius: 12px;" loading="lazy" />
         </div>
 
         <div class="about-grid" style="margin-bottom: 3rem;">
@@ -877,7 +728,8 @@ function renderBlogsPage(app) {
   };
 
   app.innerHTML = `
-    <div class="page-header">
+    <div class="page-header" style="position: relative; overflow: hidden; padding: 6rem 0;">
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('/images/blog-header.png') center/cover no-repeat; opacity: 0.15; z-index: -1;"></div>
       <div class="container">
         <div class="section-badge">Knowledge Hub</div>
         <h1 class="section-title" style="margin-top: 1rem;">Our <span class="gradient-text">Blog</span></h1>
@@ -1068,38 +920,11 @@ function renderJoinPage(app) {
 
     <section class="section" style="padding-top: 2rem;">
       <div class="container">
-        <div class="join-section">
-          <!-- Registration Form -->
-          <div class="reveal">
-            <div class="glass-card" style="padding: 2.5rem;">
-              <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">📝 Registration Form</h2>
-              <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 0.9rem;">Fill in your details and we'll get you started.</p>
-              
+        <div style="display: flex; gap: 4rem; align-items: flex-start; flex-wrap: wrap;">
+          <div style="flex: 1.5; min-width: 300px;">
+            <div class="glass-card reveal" style="padding: 3rem;">
+              <h2 style="margin-bottom: 2rem;">Membership <span class="gradient-text">Application</span></h2>
               <form id="join-form">
-                <div class="form-group">
-                  <label for="name">Full Name</label>
-                  <input type="text" id="name" name="name" placeholder="Your full name" required />
-                </div>
-                <div class="form-group">
-                  <label for="email">Email</label>
-                  <input type="email" id="email" name="email" placeholder="your.email@pccoepune.org" required />
-                </div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                  <div class="form-group">
-                    <label for="year">Year</label>
-                    <select id="year" name="year" required>
-                      <option value="">Select Year</option>
-                      <option value="FE">First Year (FE)</option>
-                      <option value="SE">Second Year (SE)</option>
-                      <option value="TE">Third Year (TE)</option>
-                      <option value="BE">Final Year (BE)</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="branch">Branch</label>
-                    <select id="branch" name="branch" required>
-                      <option value="">Select Branch</option>
-                      <option value="CSE">Computer Science</option>
                       <option value="IT">Information Technology</option>
                       <option value="ENTC">Electronics & Telecom</option>
                       <option value="Mech">Mechanical</option>

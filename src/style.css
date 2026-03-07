@@ -668,7 +668,7 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  text-align: left;
   padding: calc(var(--nav-height) + 2rem) 2rem 4rem;
   position: relative;
   overflow: hidden;
@@ -691,7 +691,8 @@ h6 {
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 800px;
+  max-width: 1200px;
+  width: 100%;
 }
 
 .hero-badge {
@@ -747,15 +748,15 @@ h6 {
 .hero-description {
   font-size: 1.1rem;
   color: var(--text-secondary);
-  max-width: 600px;
-  margin: 0 auto 2.5rem;
+  max-width: 550px;
+  margin: 0 0 2.5rem 0;
   animation: fadeInUp 0.8s ease 0.5s both;
 }
 
 .hero-buttons {
   display: flex;
   gap: 1rem;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   animation: fadeInUp 0.8s ease 0.65s both;
 }
@@ -763,8 +764,8 @@ h6 {
 .hero-stats {
   display: flex;
   gap: 3rem;
-  justify-content: center;
-  margin-top: 4rem;
+  justify-content: flex-start;
+  margin-top: 3rem;
   animation: fadeInUp 0.8s ease 0.8s both;
 }
 
@@ -1729,9 +1730,33 @@ h6 {
     padding: 0.85rem 1rem;
   }
 
+  .hero-content {
+    flex-direction: column !important;
+    text-align: center;
+    gap: 2rem !important;
+  }
+
+  .hero-text-side {
+    max-width: 100% !important;
+  }
+
+  .hero-image-side img {
+    max-width: 400px !important;
+  }
+
+  .hero-description {
+    margin: 0 auto 2rem auto !important;
+  }
+
+  .hero-buttons {
+    justify-content: center !important;
+  }
+
   .hero-stats {
+    justify-content: center !important;
     gap: 1.5rem;
     flex-wrap: wrap;
+    margin-top: 2rem !important;
   }
 
   .hero-stat .stat-number {
