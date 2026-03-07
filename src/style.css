@@ -1642,6 +1642,43 @@ h6 {
   margin-top: 0.25rem;
 }
 
+/* --- Blog Post Content Styling --- */
+.blog-post-content h2 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  margin: 2.5rem 0 1rem;
+}
+
+.blog-post-content p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.blog-post-content ul,
+.blog-post-content ol {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.blog-post-content li {
+  margin-bottom: 0.5rem;
+}
+
+.blog-post-content a {
+  color: var(--accent-1);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--accent-1);
+  transition: var(--transition);
+}
+
+.blog-post-content a:hover {
+  color: var(--accent-2);
+  border-bottom-style: solid;
+}
+
 /* --- Page Transition --- */
 #app {
   animation: fadeIn 0.4s ease;

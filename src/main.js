@@ -52,12 +52,109 @@ const CLUB_DATA = {
   ],
 
   blogs: [
-    { title: 'How We Won SIH 2024 at IIT Gandhinagar', meta: { author: 'Team Innovators', date: 'Oct 2025', readTime: '8 min' }, desc: 'Our journey from ideation to winning 1st place at Smart India Hackathon — team strategy, late-night debugging, and the final pitch.', category: 'event-recap', gradient: 'linear-gradient(135deg, #0ea5e9, #7c3aed)' },
-    { title: 'A Beginner\'s Guide to Competitive Programming', meta: { author: 'Coding Club', date: 'Nov 2025', readTime: '12 min' }, desc: 'Start your CP journey with the right mindset, platform choices, topic roadmap, and practice strategies used by our top-rated members.', category: 'technical', gradient: 'linear-gradient(135deg, #22c55e, #0ea5e9)' },
-    { title: 'From Zero to GSoC: A Member\'s Story', meta: { author: 'Club Member', date: 'Dec 2025', readTime: '10 min' }, desc: 'How one of our members went from a first-year beginner to a GSoC contributor — the exact steps, resources, and community support.', category: 'member-story', gradient: 'linear-gradient(135deg, #f472b6, #7c3aed)' },
-    { title: 'Cybersecurity 101: Getting Started with CTFs', meta: { author: 'Security Team', date: 'Jan 2026', readTime: '7 min' }, desc: 'Cracking your first CTF challenge — tools, platforms, and methodologies covered in our cybersecurity bootcamp series.', category: 'technical', gradient: 'linear-gradient(135deg, #ef4444, #f97316)' },
-    { title: 'AMD AI Sprint: Behind the Scenes', meta: { author: 'AI Team', date: 'Sep 2025', readTime: '6 min' }, desc: 'Building an AI solution under the pressure of a timed sprint — our architecture decisions, model training, and deployment strategy.', category: 'event-recap', gradient: 'linear-gradient(135deg, #7c3aed, #ec4899)' },
-    { title: 'Club Announcements: Semester Plans 2026', meta: { author: 'Core Team', date: 'Feb 2026', readTime: '4 min' }, desc: 'Upcoming workshops, contests, bootcamps, and speaker sessions planned for the current semester. Mark your calendars!', category: 'announcement', gradient: 'linear-gradient(135deg, #f59e0b, #22c55e)' }
+    {
+      id: 'sih-2024-win',
+      title: 'How We Won SIH 2024 at IIT Gandhinagar',
+      meta: { author: 'Team Innovators', date: 'Oct 2024', readTime: '8 min' },
+      desc: 'Our journey from ideation to winning 1st place at Smart India Hackathon — team strategy, late-night debugging, and the final pitch.',
+      category: 'event-recap',
+      gradient: 'linear-gradient(135deg, #0ea5e9, #7c3aed)',
+      content: `
+        <h2>The Challenge</h2>
+        <p>Smart India Hackathon (SIH) is one of the most prestigious hackathons in the world. Our problem statement revolved around building a scalable, AI-driven educational tool for rural students.</p>
+        <h2>The Execution</h2>
+        <p>The 36-hour hackathon was an absolute grind. We split our team into three specialized groups: Frontend, AI integration, and Backend Architecture. After 24 hours, our backend crashed, forcing us to rebuild the API pipeline from scratch using Node.js instead of our initial Python setup.</p>
+        <h2>The Pitch</h2>
+        <p>Our final pitch at the IIT Gandhinagar nodal center focused on feasibility and scalability. The judges were particularly impressed with our offline-sync capability, which secured us the 1st place and ₹1,00,000 prize.</p>
+      `
+    },
+    {
+      id: 'cp-guide',
+      title: 'A Beginner\'s Guide to Competitive Programming',
+      meta: { author: 'ICPC Team', date: 'Nov 2024', readTime: '12 min' },
+      desc: 'Start your CP journey with the right mindset, platform choices, topic roadmap, and practice strategies used by our top-rated members.',
+      category: 'technical',
+      gradient: 'linear-gradient(135deg, #22c55e, #0ea5e9)',
+      content: `
+        <h2>Why CP?</h2>
+        <p>Competitive Programming isn't just about getting placed at FAANG; it's about training your brain to break down complex problems efficiently under time pressure.</p>
+        <h2>The Roadmap</h2>
+        <ol style="margin-left: 20px; line-height: 1.6; color: var(--text-secondary);">
+          <li><strong>Language Basics:</strong> Master C++ or Java. Understand array manipulation, strings, and standard libraries (STL in C++).</li>
+          <li><strong>Data Structures:</strong> Linked lists, Stacks, Queues, Trees, and Graphs.</li>
+          <li><strong>Algorithms:</strong> Sorting, Searching, Dynamic Programming, and Graph Traversal (BFS/DFS).</li>
+        </ol>
+        <h2>Where to Practice</h2>
+        <p>Start with Codeforces Div 3 and Div 4. Don't worry about your rating for the first 6 months. Just focus on upsolving the problem you couldn't solve during the contest.</p>
+      `
+    },
+    {
+      id: 'gsoc-story',
+      title: 'From Zero to GSoC: A Member\'s Story',
+      meta: { author: 'Open Source Lead', date: 'Dec 2024', readTime: '10 min' },
+      desc: 'How one of our members went from a first-year beginner to a GSoC contributor — the exact steps, resources, and community support.',
+      category: 'member-story',
+      gradient: 'linear-gradient(135deg, #f472b6, #7c3aed)',
+      content: `
+        <h2>The Beginning</h2>
+        <p>I started my college journey barely knowing what Git was. I attended the Open Source Sprint conducted by the Coding Club, where I made my first PR fixing a typo in a README file.</p>
+        <h2>The Grind</h2>
+        <p>I spent my second year learning React and Node.js. I started scanning GSoC organizations early in January. I found an organization that aligned with my tech stack and started contributing small bug fixes.</p>
+        <h2>The Proposal</h2>
+        <p>Writing the proposal took three weeks. I sought feedback from the seniors in the club who had previously cleared GSoC. Their guidance on architecture diagrams and timeline planning was invaluable. In May, I received the acceptance email!</p>
+      `
+    },
+    {
+      id: 'ctf-101',
+      title: 'Cybersecurity 101: Getting Started with CTFs',
+      meta: { author: 'Security Team', date: 'Jan 2025', readTime: '7 min' },
+      desc: 'Cracking your first CTF challenge — tools, platforms, and methodologies covered in our cybersecurity bootcamp series.',
+      category: 'technical',
+      gradient: 'linear-gradient(135deg, #ef4444, #f97316)',
+      content: `
+        <h2>What is a CTF?</h2>
+        <p>Capture The Flag (CTF) competitions are educational exercises where participants learn to exploit vulnerabilities, reverse engineer code, and decrypt ciphers to find a hidden string (the "flag").</p>
+        <h2>Essential Tools</h2>
+        <p>For web exploitation, you must learn Burp Suite. For forensics, become comfortable with Autopsy and binwalk. For cryptography, CyberChef is your best friend.</p>
+        <h2>Getting Started</h2>
+        <p>Start playing on picoCTF. It's the most beginner-friendly platform. Once you are comfortable there, transition to HackTheBox modules.</p>
+      `
+    },
+    {
+      id: 'amd-ai-sprint',
+      title: 'AMD AI Sprint: Behind the Scenes',
+      meta: { author: 'AI Team', date: 'Jul 2025', readTime: '6 min' },
+      desc: 'Building an AI solution under the pressure of a timed sprint — our architecture decisions, model training, and deployment strategy.',
+      category: 'event-recap',
+      gradient: 'linear-gradient(135deg, #7c3aed, #ec4899)',
+      content: `
+        <h2>The Rig</h2>
+        <p>We were given access to AMD MI300x GPUs with an insane 192GB VRAM. This hardware completely changed our approach, allowing us to experiment with local LLMs that we previously couldn't load.</p>
+        <h2>The Architecture</h2>
+        <p>We built two distinct AI agents: a Question Agent (using Qwen-3:4B) for MCQ generation, and an Answer Agent (Llama-3.2:3B) for solving. The interplay between these agents required dynamic K-shot prompting and multi-pass retrying loops.</p>
+        <h2>The Result</h2>
+        <p>Securing 3rd place and a ₹50,000 prize validated our architecture. The biggest takeaway was learning how to optimize LoRA and QLoRA pipelines on enterprise-grade AMD silicon.</p>
+      `
+    },
+    {
+      id: 'semester-plans',
+      title: 'Club Announcements: Semester Plans 2026',
+      meta: { author: 'Core Team', date: 'Feb 2026', readTime: '4 min' },
+      desc: 'Upcoming workshops, contests, bootcamps, and speaker sessions planned for the current semester. Mark your calendars!',
+      category: 'announcement',
+      gradient: 'linear-gradient(135deg, #f59e0b, #22c55e)',
+      content: `
+        <h2>Welcome Back!</h2>
+        <p>This semester is packed with high-impact events. Our primary focus will be on competitive programming training and preparing teams for SIH 2026.</p>
+        <h2>Key Dates</h2>
+        <ul style="margin-left: 20px; line-height: 1.6; color: var(--text-secondary);">
+          <li><strong>March 15:</strong> Algo Arena DSA Contest</li>
+          <li><strong>March 28-29:</strong> Web3 & Blockchain Workshop</li>
+          <li><strong>April 10-15:</strong> CyberSec Week & CTF Bootcamp</li>
+        </ul>
+        <p>Register for these events via the links shared in the official WhatsApp groups. Let's make this semester our best one yet!</p>
+      `
+    }
   ],
 
   team: {
@@ -80,6 +177,8 @@ const CLUB_DATA = {
 
   faqs: [
     { q: 'Who can join the Coding Club?', a: 'Any student of PCCoE, regardless of branch or year, can join! Whether you\'re a complete beginner or an experienced coder, we have opportunities for everyone to learn and grow.' },
+    { q: 'I am a Non-CS / Non-IT student. Is this club for me?', a: 'Yes! Programming is essential across all engineering disciplines today (Mechanical, EnTC, Civil, etc.). We start from the basics, so you won\'t feel left behind. Our current roster includes members from Mechanical and EnTC departments!' },
+    { q: 'What if I don\'t know any programming languages yet?', a: 'That is the perfect time to join. We conduct beginner-friendly bootcamps specifically designed to take you from writing your first line of code (usually in C++ or Python) to building decent projects.' },
     { q: 'Are there any membership fees?', a: 'The club operates with minimal enrollment fees to cover event logistics, platform access, and workshop materials. The exact amount is announced at the start of each academic year.' },
     { q: 'How often do you conduct events?', a: 'We host 2-3 events per month on average, including weekly practice sessions, monthly contests, bi-monthly workshops, and special speaker sessions throughout the semester.' },
     { q: 'Can I participate in hackathons as a beginner?', a: 'Absolutely! We actively encourage beginners to join hackathon teams. We provide mentorship, team formation assistance, and pre-hackathon bootcamps to get you ready.' },
@@ -111,21 +210,31 @@ function navigateTo(path) {
 
 function router() {
   const path = getRoute();
-  const render = routes[path] || routes['/'];
   const app = document.getElementById('app');
+
+  let render;
+  let params = null;
+
+  if (path.startsWith('/blog/')) {
+    render = renderBlogPostPage;
+    params = path.split('/')[2];
+  } else {
+    render = routes[path] || routes['/'];
+  }
 
   // Page transition
   app.style.opacity = '0';
   app.style.transform = 'translateY(10px)';
 
   setTimeout(() => {
-    render(app);
+    render(app, params);
     app.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
     app.style.opacity = '1';
     app.style.transform = 'translateY(0)';
 
-    // Update active nav
-    updateActiveNav(path);
+    // Update active nav (handle nested routes like /blog/id)
+    const baseNavPath = path.startsWith('/blog/') ? '/blogs' : path;
+    updateActiveNav(baseNavPath);
 
     // Scroll to top
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -788,19 +897,73 @@ function renderBlogsPage(app) {
         
         <div class="blog-grid">
           ${blogs.map((b, i) => `
-            <div class="glass-card blog-card reveal delay-${(i % 3) + 1}" data-category="${b.category}">
-              <div class="blog-image" style="background: ${b.gradient};"></div>
-              <div class="blog-content">
-                <div class="blog-meta">
-                  <span>✍️ ${b.meta.author}</span>
-                  <span>📅 ${b.meta.date}</span>
-                  <span>📖 ${b.meta.readTime}</span>
+            <a href="#/blog/${b.id}" style="text-decoration: none; color: inherit; display: block;">
+              <div class="glass-card blog-card reveal delay-${(i % 3) + 1}" data-category="${b.category}">
+                <div class="blog-image" style="background: ${b.gradient};"></div>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <span>✍️ ${b.meta.author}</span>
+                    <span>📅 ${b.meta.date}</span>
+                    <span>📖 ${b.meta.readTime}</span>
+                  </div>
+                  <h3>${b.title}</h3>
+                  <p>${b.desc}</p>
                 </div>
-                <h3>${b.title}</h3>
-                <p>${b.desc}</p>
               </div>
-            </div>
+            </a>
           `).join('')}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderBlogPostPage(app, id) {
+  const blog = CLUB_DATA.blogs.find(b => b.id === id);
+
+  if (!blog) {
+    app.innerHTML = `
+      <div class="page-header" style="text-align: center; padding: 10rem 0;">
+        <h1 class="section-title">404 - Blog Post Not Found</h1>
+        <a href="#/blogs" class="btn btn-primary" style="margin-top: 2rem;">Return to Blogs</a>
+      </div>
+    `;
+    return;
+  }
+
+  app.innerHTML = `
+    <!-- Blog Hero -->
+    <div style="background: ${blog.gradient}; height: 350px; position: relative; margin-top: 60px;">
+      <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent, var(--bg-primary) 95%);"></div>
+      <div class="container" style="position: absolute; bottom: 0; left: 0; right: 0; padding-bottom: 2rem; z-index: 2;">
+        <a href="#/blogs" style="color: var(--accent-1); text-decoration: none; font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">← Back to Blogs</a>
+        <h1 style="font-size: clamp(2rem, 5vw, 3.5rem); font-family: var(--font-heading); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem;">${blog.title}</h1>
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; color: var(--text-secondary); font-size: 0.95rem;">
+          <span style="display: flex; align-items: center; gap: 0.4rem;">✍️ ${blog.meta.author}</span>
+          <span style="display: flex; align-items: center; gap: 0.4rem;">📅 ${blog.meta.date}</span>
+          <span style="display: flex; align-items: center; gap: 0.4rem;">📖 ${blog.meta.readTime}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blog Content -->
+    <section class="section" style="padding-top: 1rem;">
+      <div class="container">
+        <div class="glass-card reveal" style="max-width: 800px; margin: 0 auto; padding: clamp(1.5rem, 5vw, 4rem);">
+          <!-- We style the raw HTML content dynamically -->
+          <div class="blog-post-content" style="line-height: 1.8; font-size: 1.05rem; color: var(--text-primary);">
+            <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2.5rem; border-left: 4px solid var(--accent-1); padding-left: 1.5rem;">
+              <em>${blog.desc}</em>
+            </p>
+            ${blog.content}
+          </div>
+          
+          <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--glass-border); text-align: center;">
+            <p style="margin-bottom: 1rem; color: var(--text-secondary);">Enjoyed this post? Share it with your peers!</p>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+              <button class="btn btn-secondary" onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!')">🔗 Copy Link</button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
