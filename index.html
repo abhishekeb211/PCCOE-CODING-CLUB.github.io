@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PCCoE Coding Club — Code. Compete. Create.</title>
+  <meta name="description"
+    content="PCCoE Coding Club is a student-driven community focused on competitive programming, hackathons, cybersecurity, open-source development, and research." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+
+<body>
+  <!-- Animated canvas particles -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Cursor glow effect -->
+  <div id="cursor-glow"></div>
+
+  <!-- Navigation -->
+  <header id="main-header">
+    <nav class="navbar">
+      <a href="#/" class="nav-logo">
+        <img src="/images/logo.png" alt="PCCoE Coding Club" class="logo-img" />
+        <span class="logo-text">PCCoE <span class="accent-text">Coding Club</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#/" class="nav-link" data-page="home">Home</a></li>
+        <li><a href="#/about" class="nav-link" data-page="about">About</a></li>
+        <li><a href="#/achievements" class="nav-link" data-page="achievements">Achievements</a></li>
+        <li><a href="#/events" class="nav-link" data-page="events">Events</a></li>
+        <li><a href="#/plans" class="nav-link" data-page="plans">Roadmap</a></li>
+        <li><a href="#/blogs" class="nav-link" data-page="blogs">Blogs</a></li>
+        <li><a href="#/team" class="nav-link" data-page="team">Team</a></li>
+        <li><a href="#/join" class="nav-link cta-link" data-page="join">Join Us</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Main Content Area -->
+  <main id="app"></main>
+
+  <!-- Footer -->
+  <footer id="main-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo"><img src="/images/logo.png" alt="" class="footer-logo-img" /> PCCoE <span
+              class="accent-text">Coding Club</span></div>
+          <p class="footer-tagline">Code. Compete. Create.</p>
+          <p class="footer-desc">A student-driven community focused on competitive programming, hackathons,
+            cybersecurity, open-source development, and research.</p>
+        </div>
+        <div class="footer-links-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#/">Home</a></li>
+            <li><a href="#/about">About</a></li>
+            <li><a href="#/achievements">Achievements</a></li>
+            <li><a href="#/events">Events</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#/plans">Roadmap</a></li>
+            <li><a href="#/blogs">Blogs</a></li>
+            <li><a href="#/team">Team</a></li>
+            <li><a href="#/join">Join Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="mailto:codingclub@pccoepune.org">Email</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 PCCoE Coding Club. All rights reserved.</p>
+        <p>Pimpri Chinchwad College of Engineering, Pune</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top button -->
+  <button id="scroll-top" aria-label="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+      <path d="M10 4L4 12h12L10 4z" fill="currentColor" />
+    </svg>
+  </button>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
