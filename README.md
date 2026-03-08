@@ -1,7 +1,7 @@
 # PCCoE Coding Club Website 🚀
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Version](https://img.shields.io/badge/version-1.0.0-green.svg)
+![Version](https://img.shields.io/badge/version-1.1.0-green.svg)
 ![Tech Stack](https://img.shields.io/badge/tech-HTML5%20%7C%20CSS3%20%7C%20Vanilla%20JS%20%7C%20Vite-blueviolet.svg)
 
 Welcome to the official repository for the **PCCoE Coding Club** website! This is a dynamic, highly interactive Single Page Application (SPA) built entirely with Vanilla JavaScript, HTML5, modern CSS3, and bundled with Vite.
@@ -9,10 +9,11 @@ Welcome to the official repository for the **PCCoE Coding Club** website! This i
 ## ✨ Features
 
 - **Blazing Fast SPA Routing**: Custom hash-based router implemented in pure JavaScript for instant page transitions without reloading.
-- **Premium UI/UX Design**:
+- **Advanced Theming & Glassmorphism**:
+  - Multiple theme modes: **Modern Glass**, **Professional Light**, and **Hacker Mode** (Red/High-Contrast).
   - Dark mode specific glassmorphism design system (`backdrop-filter`) for cards and navbar.
-  - Vibrant cyan-violet gradient accents.
-  - Subtle entrance animations (`IntersectionObserver` for scroll reveals).
+  - Smooth global theme transitions without visual artifacts.
+- **Progressive Web App (PWA)**: Optimized for mobile experience with offline capabilities and "Add to Home Screen" support.
 - **Interactive Enhancements**:
   - **Canvas Particle System**: A custom-coded floating particle background that connects dots and repels away from the mouse cursor.
   - **Cursor Glow**: A subtle, smooth-following radial gradient that tracks the user's cursor.
@@ -92,6 +93,10 @@ npm run preview
 
 ## 🌐 Deployment
 
+The website is officially deployed at: **[https://abhishekeb211.github.io/PCCOE-CODING-CLUB.github.io/#/](https://abhishekeb211.github.io/PCCOE-CODING-CLUB.github.io/#/)**
+
+The `dist/` folder generated from `npm run build` can be deployed to any static hosting provider, such as:
+
 The `dist/` folder generated from `npm run build` can be deployed to any static hosting provider, such as:
 - GitHub Pages
 - Vercel
@@ -118,4 +123,4 @@ This project is open-source and available under the [MIT License](LICENSE).
 ---
 *Built with ❤️ by the PCCoE Coding Club Team.*
 
-*Last updated: March 2026*
+*Last updated: March 2026 (v1.1.0)*

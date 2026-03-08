@@ -27,7 +27,8 @@ const CLUB_DATA = {
   achievements: [
     { badge: '🥇 1st Place', title: 'Smart India Hackathon (SIH)', desc: 'Past winners at IIT Gandhinagar. Facilitated 15 teams for SIH 2025-26, with 7 teams advancing past round one.', prize: '₹1,00,000', category: 'hackathon', image: './images/sih-2024-win.jpg' },
     { badge: '🥉 3rd Place', title: 'AMD AI Sprint — AI Premier League', desc: 'Team (Tushar Badlani, Yash Varma, Soham Mhatre) secured 3rd in Track 1 using Qwen-3:4B, Llama-3.2:3B, LoRA, and dynamic K-shot prompting on AMD MI300x with 192GB VRAM.', prize: '₹50,000', category: 'hackathon', image: './images/amd-ai-sprint.jpg' },
-    { badge: '🎯 Top Performers', title: 'Competitive Coding Excellence', desc: 'Active participation and top rankings on Codeforces, LeetCode, and CodeChef. Members consistently preparing for ICPC Regionals.', prize: null, category: 'coding' },
+    { badge: '🏅 Rank 52 — Kanpur Regionals', title: 'ICPC Kanpur Regional 2025', desc: 'Team PurpleSector3 (Anish Patade, Siddhesh Patil, Nishad Gangal) qualified for the regional round with Institute Rank 1 and All India Rank 142 in the Prelims. Represented PCCOE at IIT Kanpur (22–23 Dec 2025), solving 5 problems to finish Rank 52 nationally.', prize: null, category: 'coding' },
+    { badge: '🚀 SIH 2025 Selection', title: 'Smart India Hackathon (SIH)', desc: 'Facilitated 24 teams for SIH 2025 internal selection. Club mentors directly guided 15 teams on solution architecture and documentation for national submissions.', prize: null, category: 'hackathon' },
     { badge: '🚀 Hackathon Selection', title: 'Indradhanu IGC Hackathon', desc: '4 teams successfully selected for round two after rigorous preliminary evaluations.', prize: null, category: 'hackathon' },
     { badge: '💼 Placements', title: 'Industry Placements & Internships', desc: 'Members secured roles and SaaS internships at Google, CrowdStrike, ConnectWise, Quick Heal, PTC, Addepar, EQ Technologic, and Josh Software.', prize: null, category: 'opensource' },
     { badge: '🔐 Security Champions', title: 'CTF Competitions', desc: 'Strong performance across national CTF events, with team members excelling in web exploitation and cryptography challenges.', prize: null, category: 'ctf' },
@@ -39,6 +40,8 @@ const CLUB_DATA = {
     { date: 'Aug 2025', title: 'Algo Arena — DSA Contest', desc: 'Internal coding competition covering advanced DSA topics. Timed rounds with increasing difficulty.', tag: 'Contest', upcoming: true },
     { date: 'Sep 2025', title: 'Web3 & Blockchain Workshop', desc: 'Two-day hands-on workshop on smart contracts, Solidity, and decentralized app development.', tag: 'Workshop', upcoming: true },
     { date: 'Sep 2025', title: 'CTF Bootcamp — CyberSec Week', desc: 'Intensive cybersecurity bootcamp with live CTF challenges, covering forensics, web exploitation, and crypto.', tag: 'Bootcamp', upcoming: true },
+    { date: '8 Nov 2025', title: 'ICPC Online Preliminary Round', desc: 'Organized in association with CESA and ACM at PCCOE Computer Labs. 105 students (35 teams) competed. Team PurpleSector3 topped with 5 problems solved, AIR 142, and qualified for Kanpur Regionals.', tag: 'Contest', upcoming: false },
+    { date: 'Sep 2025', title: 'SIH 2025 Internal Selection', desc: 'Mentored 24 student teams for internal selection. Provided guidance on problem statements, documentation, and technical feasibility.', tag: 'Hackathon', upcoming: true },
     { date: 'Jan 2025', title: 'Google Gen AI Exchange Hackathon', desc: 'Participated in Google\'s Gen AI Exchange, building innovative AI-powered applications.', tag: 'Hackathon', upcoming: false },
     { date: 'Dec 2024', title: 'Open Source Sprint', desc: 'Week-long open source contribution drive, with mentorship for beginners on Git workflows and PR processes.', tag: 'Sprint', upcoming: false }
   ],
@@ -159,7 +162,7 @@ const CLUB_DATA = {
 
   team: {
     faculty: [
-      { name: 'Mr. Abhishek S. Raut', role: 'Faculty In-Charge / Secretary', initials: 'AR', bio: 'Guiding the club\'s vision and connecting students with industry and academic opportunities.' }
+      { name: 'Mr. Abhishek S. Raut', role: 'Faculty In-Charge / Club Secretary', initials: 'AR', bio: 'Guiding the club\'s vision and connecting students with industry and academic opportunities.' }
     ],
     core: [
       { name: 'President', role: 'Club President', initials: 'P', bio: 'Leading club strategy, events, and community growth.' },
