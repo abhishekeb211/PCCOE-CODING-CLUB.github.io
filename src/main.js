@@ -39,7 +39,13 @@ const CLUB_DATA = {
   ],
 
   events: [
+    { date: 'Oct 2026', title: 'IEEE Xtreme 20.0', desc: 'The 20th edition of the global 24-hour programming competition. A flagship event for IEEE members and Coding Club members alike.', tag: 'Contest', upcoming: true },
+    { date: 'Sep–Oct 2026', title: 'Flipkart GRID 8.0', desc: 'National-level engineering challenge with tracks in SDE, Robotics, and InfoSec. A major gateway for tier-1 tech roles.', tag: 'Hiring', upcoming: true },
+    { date: 'Aug–Sep 2026', title: 'ICPC 2026 Prelims Cycle', desc: 'The starting point for the world\'s most prestigious competitive programming journey. Internal mock rounds and team formation will begin in early August.', tag: 'Contest', upcoming: true },
+    { date: 'Jul–Aug 2026', title: 'SIH 2026 Internal Hackathon', desc: 'Internal shortlisting for Smart India Hackathon 2026. Pitch your hardware/software solutions for national problem statements.', tag: 'Hackathon', upcoming: true },
+    { date: 'May–Jun 2026', title: 'Google Hash Code & Kick Start', desc: 'Global coding contests focusing on optimization and algorithmic problem solving. Stay tuned for the PCCoE Hub registrations.', tag: 'Contest', upcoming: true },
     { date: '2026', title: 'Microsoft Tech Events', desc: 'Keep track of upcoming Microsoft technology waves and learning paths. <a href="https://www.microsoft.com/en-us/events" target="_blank">View Events</a>.', tag: 'Resource', upcoming: true },
+    { date: 'Feb–Mar 2026', title: 'Meta Hacker Cup 2026', desc: 'Facebook\'s annual open world programming competition. Practice rounds and team discussions in the lab.', tag: 'Contest', upcoming: true },
     { date: 'Dec 2025', title: 'IEEE ComputingEdge Hub', desc: 'Accessing the latest trends in computing via the IEEE Computer Society digital library. <a href="https://www.computer.org/publications/computing-edge/current-issue" target="_blank">Explore ComputingEdge</a>.', tag: 'Resource', upcoming: false },
     { date: '8 Nov 2025', title: 'ICPC Online Preliminary Round', desc: 'Organized at PCCOE Computer Labs (1:00 PM–7:00 PM). 105 students (35 teams) competed. International programming competition.', tag: 'Contest', upcoming: false },
     { date: 'Sep 2025', title: 'SIH 2025 Internal Selection', desc: 'Mentored 24 student teams for internal selection. Provided guidance on problem statements, documentation, and technical feasibility.', tag: 'Hackathon', upcoming: true },
@@ -60,6 +66,35 @@ const CLUB_DATA = {
   ],
 
   blogs: [
+    {
+      id: 'competition-roadmap-2026',
+      title: '2026 Competition Roadmap: From India-First to Global Stages',
+      meta: { author: 'PCCoE Coding Club', date: 'March 2026', readTime: '15 min' },
+      desc: 'Our master guide for the 2026 competition cycle — major hackathons, algorithmic contests, and hiring-focused challenges.',
+      category: 'announcement',
+      gradient: 'linear-gradient(135deg, #f59e0b, #ef4444)',
+      content: `
+        <h2>Preparation Strategy</h2>
+        <p>Success in elite competitions requires consistent effort. We recommend a 70-30 split: 70% of your time should be spent on core technical skills (DSA, AI/ML, System Design) and 30% on competition-specific patterns.</p>
+        
+        <h2>Global Flagships (Tier 1)</h2>
+        <ul style="margin-left: 20px; line-height: 1.6; color: var(--text-secondary); margin-bottom: 2rem;">
+          <li><strong>ICPC:</strong> The Olympics of Programming. Target the North America or Asia regionals for maximum impact.</li>
+          <li><strong>IEEE Xtreme:</strong> A rigorous 24-hour algorithmic battle.</li>
+          <li><strong>Meta Hacker Cup:</strong> Great for algorithmic complexity mastery.</li>
+        </ul>
+
+        <h2>India-First & Hiring Contests</h2>
+        <ul style="margin-left: 20px; line-height: 1.6; color: var(--text-secondary); margin-bottom: 2rem;">
+          <li><strong>Smart India Hackathon (SIH):</strong> Focus on solving hardware/software problems for government ministries.</li>
+          <li><strong>Flipkart GRID:</strong> High-stakes engineering challenge with direct PPO opportunities.</li>
+          <li><strong>TCS CodeVita:</strong> One of India's largest hiring competitions.</li>
+        </ol>
+
+        <h2>How to Stay Updated</h2>
+        <p>Regularly check platforms like Unstop, Codeforces, and HackerEarth. Join the club's WhatsApp #opportunities channel for live updates and team formation links.</p>
+      `
+    },
     {
       id: 'super-ide-orchestrator',
       title: 'The Super-IDE Orchestrator: Our Operating Framework',
