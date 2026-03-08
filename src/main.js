@@ -26,16 +26,21 @@ const CLUB_DATA = {
   ],
 
   achievements: [
+    { badge: '🏅 Finalist', title: 'Fujitsu Quantum Challenge 2026', desc: 'Reached the final round of this prestigious global quantum computing competition. One of the few teams from India to advance to the final stage.', prize: 'Ongoing', category: 'coding' },
     { badge: '📡 ISRO RESPOND 2025', title: 'RES-SAC-2025-028 Proposal', desc: 'Title: "SDN-Based Network with Post-Quantum Cryptography for Secure and Optimized Traffic Management". <a href="https://www.sac.gov.in/respond/" target="_blank">View SAC RESPOND Portal</a>.', prize: 'Proposal Phase', category: 'research' },
     { badge: '🔬 Research Portfolio', title: 'ISRO RESPOND References', desc: 'Managing several research proposals including RES-VSSC-2025-027, RES-SAC-2025-014, and RES-NRSC-2025-002. <a href="https://www.isro.gov.in/media_isro/pdf/Respond_Basket_2025.pdf" target="_blank">Download RESPOND Basket 2025</a>.', prize: 'Ongoing', category: 'research' },
     { badge: '🏅 Rank 52 — Kanpur Regionals', title: 'ICPC Kanpur Regional 2025', desc: 'Team PurpleSector3 (Anish Patade, Siddhesh Patil, Nishad Gangal) qualified for the regional round with Institute Rank 1 and All India Rank 142 in the Prelims. Represented PCCOE at IIT Kanpur (22–23 Dec 2025), solving 5 problems to finish Rank 52 nationally.', prize: null, category: 'coding' },
+    { badge: '🚀 Top 10 — Mumbai Hacks', title: 'Mumbai Hacks 2025', desc: 'Secured a spot in the Top 10 teams. Successfully tested PQC (Post-Quantum Cryptography) algorithms on the Airawat Supercomputer at C-DAC.', prize: 'C-DAC Recognition', category: 'hackathon' },
     { badge: '🥉 3rd Place', title: 'AMD AI Sprint — AI Premier League', desc: 'Team (Tushar Badlani, Yash Varma, Soham Mhatre) secured 3rd in Track 1 using Qwen-3:4B, Llama-3.2:3B, LoRA, and dynamic K-shot prompting on AMD MI300x with 192GB VRAM.', prize: '₹50,000', category: 'hackathon', image: './images/amd-ai-sprint.jpg' },
+    { badge: '🏎️ World Rank 25', title: 'AWS DeepRacer League', desc: 'Achieved 25th rank globally and Top 10 in Asia/India category in the reinforcement learning autonomous racing league.', prize: '$600 Scholarship', category: 'coding' },
+    { badge: '🏆 3rd Winner', title: 'Analytics Vidhya ML Challenge', desc: 'Secured 3rd place in the Machine Learning Prediction Challenge among thousands of participants.', prize: '₹90,000', category: 'coding' },
     { badge: '🚀 SIH 2025 Selection', title: 'Smart India Hackathon (SIH)', desc: 'Facilitated 24 teams for SIH 2025 internal selection. Club mentors directly guided 15 teams on solution architecture and documentation for national submissions.', prize: null, category: 'hackathon' },
     { badge: '🚀 Hackathon Selection', title: 'Indradhanu IGC Hackathon', desc: '4 teams successfully selected for round two after rigorous preliminary evaluations.', prize: null, category: 'hackathon' },
     { badge: '💼 Placements', title: 'Industry Placements & Internships', desc: 'Members secured roles and SaaS internships at Google, CrowdStrike, ConnectWise, Quick Heal, PTC, Addepar, EQ Technologic, and Josh Software.', prize: null, category: 'opensource' },
     { badge: '🔐 Security Champions', title: 'CTF Competitions', desc: 'Strong performance across national CTF events, with team members excelling in web exploitation and cryptography challenges.', prize: null, category: 'ctf' },
     { badge: '🌟 Open Source', title: 'GSoC & Open Source Selections', desc: 'Members selected for Google Summer of Code and contributed to major open-source projects including frameworks and developer tools.', prize: null, category: 'opensource' },
-    { badge: '🥇 1st Place', title: 'Smart India Hackathon (SIH)', desc: 'Past winners at IIT Gandhinagar. Facilitated 15 teams for SIH 2025-26, with 7 teams advancing past round one.', prize: '₹1,00,000', category: 'hackathon', image: './images/sih-2024-win.jpg' }
+    { badge: '🥇 1st Place', title: 'Smart India Hackathon (SIH)', desc: 'Past winners at IIT Gandhinagar. Facilitated 15 teams for SIH 2025-26, with 7 teams advancing past round one.', prize: '₹1,00,000', category: 'hackathon', image: './images/sih-2024-win.jpg' },
+    { badge: '🤖 Top 25', title: 'ABU ROBOCON 2019', desc: 'Represented the college in the national autonomous robotics competition, finishing in the Top 25 across India.', prize: null, category: 'coding' }
   ],
 
   events: [
@@ -44,9 +49,14 @@ const CLUB_DATA = {
     { date: 'Aug–Sep 2026', title: 'ICPC 2026 Prelims Cycle', desc: 'The starting point for the world\'s most prestigious competitive programming journey. Internal mock rounds and team formation will begin in early August.', tag: 'Contest', upcoming: true },
     { date: 'Jul–Aug 2026', title: 'SIH 2026 Internal Hackathon', desc: 'Internal shortlisting for Smart India Hackathon 2026. Pitch your hardware/software solutions for national problem statements.', tag: 'Hackathon', upcoming: true },
     { date: 'May–Jun 2026', title: 'Google Hash Code & Kick Start', desc: 'Global coding contests focusing on optimization and algorithmic problem solving. Stay tuned for the PCCoE Hub registrations.', tag: 'Contest', upcoming: true },
+    { date: 'March–April 2026', title: 'IIT Research Internships', desc: 'Application window for research internships and competitions at major IITs.', tag: 'Resource', upcoming: true },
     { date: '2026', title: 'Microsoft Tech Events', desc: 'Keep track of upcoming Microsoft technology waves and learning paths. <a href="https://www.microsoft.com/en-us/events" target="_blank">View Events</a>.', tag: 'Resource', upcoming: true },
     { date: 'Feb–Mar 2026', title: 'Meta Hacker Cup 2026', desc: 'Facebook\'s annual open world programming competition. Practice rounds and team discussions in the lab.', tag: 'Contest', upcoming: true },
+    { date: 'Dec 2025', title: 'Innovision (NIT Rourkela)', desc: 'One of Eastern India\'s largest technical festivals. Participate in diverse coding and robotics challenges.', tag: 'Tech-Fest', upcoming: false },
+    { date: 'Dec 2025', title: 'Cognitia (NIT Durgapur)', desc: 'Annual technical festival featuring innovation showcases and competitive events.', tag: 'Tech-Fest', upcoming: false },
+    { date: 'Dec 2025', title: 'Aparoksha (NIT Allahabad)', desc: 'Flagship technical festival of IIIT-A, known for high-quality hackathons and coding contests.', tag: 'Tech-Fest', upcoming: false },
     { date: 'Dec 2025', title: 'IEEE ComputingEdge Hub', desc: 'Accessing the latest trends in computing via the IEEE Computer Society digital library. <a href="https://www.computer.org/publications/computing-edge/current-issue" target="_blank">Explore ComputingEdge</a>.', tag: 'Resource', upcoming: false },
+    { date: 'Nov 2025', title: 'DST INSPIRE Scholarship Exam', desc: 'National-level scholarship application for science and technology students.', tag: 'Exam', upcoming: false },
     { date: '8 Nov 2025', title: 'ICPC Online Preliminary Round', desc: 'Organized at PCCOE Computer Labs (1:00 PM–7:00 PM). 105 students (35 teams) competed. International programming competition.', tag: 'Contest', upcoming: false },
     { date: 'Sep 2025', title: 'SIH 2025 Internal Selection', desc: 'Mentored 24 student teams for internal selection. Provided guidance on problem statements, documentation, and technical feasibility.', tag: 'Hackathon', upcoming: true },
     { date: 'Sep 2025', title: 'Web3 & Blockchain Workshop', desc: 'Two-day hands-on workshop on smart contracts, Solidity, and decentralized app development.', tag: 'Workshop', upcoming: true },
@@ -66,6 +76,40 @@ const CLUB_DATA = {
   ],
 
   blogs: [
+    {
+      id: 'coding-agent-cli',
+      title: 'Project Spotlight: Coding Agent CLI',
+      meta: { author: 'Abhishek Raut', date: 'March 2026', readTime: '10 min' },
+      desc: 'Developing an offline-first, air-gapped GenAI security scanning and remediation tool for industrial-grade code correction.',
+      category: 'technical',
+      gradient: 'linear-gradient(135deg, #3b82f6, #06b6d4)',
+      content: `
+        <h2>The Vision</h2>
+        <p>Coding Agent CLI is designed for secure, mission-critical environments where cloud-based AI is restricted. It orchestrates security scanners, normalizes findings (SARIF/CWE), and uses a local LLM to propose high-fidelity fixes.</p>
+        <h2>Key Features</h2>
+        <ul style="margin-left: 20px; line-height: 1.6; color: var(--text-secondary);">
+          <li><strong>Air-Gapped Security:</strong> Operates entirely without internet connectivity.</li>
+          <li><strong>Policy-as-Code:</strong> Enforces organization-specific coding standards during remediation.</li>
+          <li><strong>SARIF Integration:</strong> Unified reporting across multiple static analysis tools.</li>
+        </ul>
+      `
+    },
+    {
+      id: 'samanvay-7-bff',
+      title: 'SAMANVAY-7: The Mental Health AI Pod',
+      meta: { author: 'Innovation Team', date: 'Feb 2026', readTime: '8 min' },
+      desc: 'A privacy-first offline AI therapy system using local LLMs and multimodal interaction for sensitive mental health support.',
+      category: 'technical',
+      gradient: 'linear-gradient(135deg, #10b981, #3b82f6)',
+      content: `
+        <h2>Offline Privacy</h2>
+        <p>In mental health, privacy is non-negotiable. SAMANVAY-7 (BFF) runs a customized Llama 3.2 model locally to ensure that user sessions never leave the device.</p>
+        <h2>Multimodal Interaction</h2>
+        <p>Beyond text, the system features voice interaction and avatar-based companionship, providing a more human-like presence for users in need.</p>
+        <h2>Crisis Management</h2>
+        <p>The system includes built-in crisis protocols that can escalate to human intervention through predefined emergency channels when required.</p>
+      `
+    },
     {
       id: 'competition-roadmap-2026',
       title: '2026 Competition Roadmap: From India-First to Global Stages',
@@ -93,6 +137,52 @@ const CLUB_DATA = {
 
         <h2>How to Stay Updated</h2>
         <p>Regularly check platforms like Unstop, Codeforces, and HackerEarth. Join the club's WhatsApp #opportunities channel for live updates and team formation links.</p>
+
+        <h2>Competition Platforms Table</h2>
+        <div class="glass-card" style="padding: 1rem; overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; color: var(--text-secondary); font-size: 0.9rem;">
+            <thead>
+              <tr style="border-bottom: 1px solid var(--border-color); text-align: left;">
+                <th style="padding: 0.8rem;">#</th>
+                <th style="padding: 0.8rem;">Platform</th>
+                <th style="padding: 0.8rem;">Specialty</th>
+                <th style="padding: 0.8rem;">Link</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <td style="padding: 0.8rem;">1</td>
+                <td style="padding: 0.8rem;">Unstop</td>
+                <td style="padding: 0.8rem;">National Hackathons</td>
+                <td style="padding: 0.8rem;"><a href="https://unstop.com/" target="_blank">Visit</a></td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <td style="padding: 0.8rem;">2</td>
+                <td style="padding: 0.8rem;">HackerEarth</td>
+                <td style="padding: 0.8rem;">Corporate Challenges</td>
+                <td style="padding: 0.8rem;"><a href="https://hackerearth.com/" target="_blank">Visit</a></td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <td style="padding: 0.8rem;">3</td>
+                <td style="padding: 0.8rem;">MachineHack</td>
+                <td style="padding: 0.8rem;">AI/ML Hackathons</td>
+                <td style="padding: 0.8rem;"><a href="https://machinehack.com/" target="_blank">Visit</a></td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <td style="padding: 0.8rem;">4</td>
+                <td style="padding: 0.8rem;">GeeksforGeeks</td>
+                <td style="padding: 0.8rem;">Coding Contests</td>
+                <td style="padding: 0.8rem;"><a href="https://practice.geeksforgeeks.org/" target="_blank">Visit</a></td>
+              </tr>
+              <tr>
+                <td style="padding: 0.8rem;">5</td>
+                <td style="padding: 0.8rem;">NPTEL</td>
+                <td style="padding: 0.8rem;">Academic Competitions</td>
+                <td style="padding: 0.8rem;"><a href="https://nptel.ac.in/" target="_blank">Visit</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       `
     },
     {
