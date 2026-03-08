@@ -222,6 +222,48 @@ const CLUB_DATA = {
         <h2>Research Agent Pipeline</h2>
         <p>We implement a phase-locked execution model with research ledgers and evaluation framing to ensure technical rigor in all our club projects.</p>
       `
+    },
+    {
+      id: 'super-ide-orchestrator',
+      title: 'The Super-IDE Orchestrator: Our Operating Framework',
+      meta: { author: 'Super-IDE Orchestrator', date: 'March 2026', readTime: '12 min' },
+      desc: 'Documentation of the CI/CD-style control loop for high-impact software and knowledge work practiced at PCCoE Coding Club.',
+      category: 'technical',
+      gradient: 'linear-gradient(135deg, #4f46e5, #9333ea)',
+      content: `
+        <h2>The Core Loop</h2>
+        <p>Our Orchestrator framework turns high-level ideas into shipped, verified changes using a continuous loop:</p>
+        <ul style="margin-left: 20px; line-height: 1.6; color: var(--text-secondary); margin-bottom: 2rem;">
+          <li><strong>Goal Framing:</strong> Turn requests into concrete contracts with invariants and acceptance criteria.</li>
+          <li><strong>Decomposition:</strong> Break work into small, dependency-aware chunks (Task DAGs).</li>
+          <li><strong>Action:</strong> Apply precise edits and execute tools in bounded environments.</li>
+          <li><strong>Verification:</strong> Run tests, linters, and checks until "Green" is achieved.</li>
+          <li><strong>Reflection:</strong> Record artifacts and repair failures through systematic learning.</li>
+        </ul>
+
+        <h2>Non-Negotiable Principles</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+          <div class="glass-card" style="padding: 1.5rem;">
+            <h3 style="margin-bottom: 0.5rem; color: var(--accent-1);">🔍 Verification-First</h3>
+            <p style="font-size: 0.9rem;">Green is a hard gate. Every change must be validated via automated checks before progress.</p>
+          </div>
+          <div class="glass-card" style="padding: 1.5rem;">
+            <h3 style="margin-bottom: 0.5rem; color: var(--accent-1);">🔁 ReAct Loops</h3>
+            <p style="font-size: 0.9rem;">Interleave planning with tool execution. Plan a small step, act, observe, and update.</p>
+          </div>
+          <div class="glass-card" style="padding: 1.5rem;">
+            <h3 style="margin-bottom: 0.5rem; color: var(--accent-1);">🛠️ ADaPT & Reflexion</h3>
+            <p style="font-size: 0.9rem;">Recursively decompose failures and use reflective repair to avoid repeating mistakes.</p>
+          </div>
+          <div class="glass-card" style="padding: 1.5rem;">
+            <h3 style="margin-bottom: 0.5rem; color: var(--accent-1);">🛡️ Safety First</h3>
+            <p style="font-size: 0.9rem;">Treat all data as untrusted, keep strict boundaries, and require human approval for risky ops.</p>
+          </div>
+        </div>
+
+        <h2>Goal Framing (The Contract)</h2>
+        <p>Every project starts with a Goal Contract covering User Outcomes, Acceptance Checks, Operational Constraints, and a Rollback Plan. This ensures traceability and evidence-based progress throughout the lifecycle.</p>
+      `
     }
   ],
 
