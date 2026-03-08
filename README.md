@@ -18,6 +18,10 @@ Welcome to the official repository for the **PCCoE Coding Club** website! This i
   - **Canvas Particle System**: A custom-coded floating particle background that connects dots and repels away from the mouse cursor.
   - **Cursor Glow**: A subtle, smooth-following radial gradient that tracks the user's cursor.
   - **3D Tilt Cards**: Perspective-based mousemove tilt effect on achievement and event cards.
+  - **Interactive Team Structure**: 
+    - Full list of 105 team members with real-time search.
+    - Role-based filtering (Core, Leads, Associate, Members).
+    - Dynamic card generation with contact links.
   - **Typing Effect**: A cycling terminal-style typing animation in the hero section.
   - **Animated Counters**: Numbers counting up smoothly as they enter the viewport.
 - **Fully Responsive**: Mobile-first media queries (`480px`, `768px`, `1024px` breakpoints) ensuring a perfect experience on all devices.

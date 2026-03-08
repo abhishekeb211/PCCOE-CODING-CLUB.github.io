@@ -3,12 +3,13 @@
    =================================================================== */
 
 import './style.css';
+import { TEAM_DATA } from './teamData.js';
 
 // ========================= DATA =========================
 
 const CLUB_DATA = {
   stats: {
-    members: 105,
+    members: TEAM_DATA.length,
     events: 50,
     wins: 25,
     projects: 40
@@ -58,7 +59,7 @@ const CLUB_DATA = {
     {
       id: 'sih-2024-win',
       title: 'How We Won SIH 2024 at IIT Gandhinagar',
-      meta: { author: 'Team Innovators', date: 'Oct 2024', readTime: '8 min' },
+      meta: { author: 'Mihir Pande', date: 'Oct 2024', readTime: '8 min' },
       desc: 'Our journey from ideation to winning 1st place at Smart India Hackathon — team strategy, late-night debugging, and the final pitch.',
       category: 'event-recap',
       gradient: 'linear-gradient(135deg, #0ea5e9, #7c3aed)',
@@ -74,7 +75,7 @@ const CLUB_DATA = {
     {
       id: 'cp-guide',
       title: 'A Beginner\'s Guide to Competitive Programming',
-      meta: { author: 'ICPC Team', date: 'Nov 2024', readTime: '12 min' },
+      meta: { author: 'Anish Patade', date: 'Nov 2024', readTime: '12 min' },
       desc: 'Start your CP journey with the right mindset, platform choices, topic roadmap, and practice strategies used by our top-rated members.',
       category: 'technical',
       gradient: 'linear-gradient(135deg, #22c55e, #0ea5e9)',
@@ -94,7 +95,7 @@ const CLUB_DATA = {
     {
       id: 'gsoc-story',
       title: 'From Zero to GSoC: A Member\'s Story',
-      meta: { author: 'Open Source Lead', date: 'Dec 2024', readTime: '10 min' },
+      meta: { author: 'Pawan Patil', date: 'Dec 2024', readTime: '10 min' },
       desc: 'How one of our members went from a first-year beginner to a GSoC contributor — the exact steps, resources, and community support.',
       category: 'member-story',
       gradient: 'linear-gradient(135deg, #f472b6, #7c3aed)',
@@ -110,7 +111,7 @@ const CLUB_DATA = {
     {
       id: 'ctf-101',
       title: 'Cybersecurity 101: Getting Started with CTFs',
-      meta: { author: 'Security Team', date: 'Jan 2025', readTime: '7 min' },
+      meta: { author: 'Kartik Totlani', date: 'Jan 2025', readTime: '7 min' },
       desc: 'Cracking your first CTF challenge — tools, platforms, and methodologies covered in our cybersecurity bootcamp series.',
       category: 'technical',
       gradient: 'linear-gradient(135deg, #ef4444, #f97316)',
@@ -142,7 +143,7 @@ const CLUB_DATA = {
     {
       id: 'semester-plans',
       title: 'Club Announcements: Semester Plans 2026',
-      meta: { author: 'Core Team', date: 'Feb 2026', readTime: '4 min' },
+      meta: { author: 'Mihir Pande', date: 'Feb 2026', readTime: '4 min' },
       desc: 'Upcoming workshops, contests, bootcamps, and speaker sessions planned for the current semester. Mark your calendars!',
       category: 'announcement',
       gradient: 'linear-gradient(135deg, #f59e0b, #22c55e)',
@@ -165,16 +166,16 @@ const CLUB_DATA = {
       { name: 'Mr. Abhishek S. Raut', role: 'Faculty In-Charge / Club Secretary', initials: 'AR', bio: 'Guiding the club\'s vision and connecting students with industry and academic opportunities.' }
     ],
     core: [
-      { name: 'President', role: 'Club President', initials: 'P', bio: 'Leading club strategy, events, and community growth.' },
-      { name: 'Vice President', role: 'Vice President', initials: 'VP', bio: 'Co-leading operations and inter-club coordination.' },
-      { name: 'Treasurer', role: 'Treasurer', initials: 'TR', bio: 'Managing club finances, sponsorships, and event budgets.' },
-      { name: 'Student Secretary', role: 'Student Secretary', initials: 'SS', bio: 'Overseeing club documentation, scheduling, and official communications.' }
+      { name: 'Mihir Pande', role: 'Club President', initials: 'MP', bio: 'Leading club strategy, events, and community growth.' },
+      { name: 'Siddhesh Patil', role: 'Vice President', initials: 'SP', bio: 'Co-leading operations and inter-club coordination.' },
+      { name: 'Ashish Suryawanshi', role: 'Treasurer', initials: 'AS', bio: 'Managing club finances, sponsorships, and event budgets.' },
+      { name: 'Soham Mhatre', role: 'Student Secretary', initials: 'SM', bio: 'Overseeing club documentation, scheduling, and official communications.' }
     ],
     leads: [
-      { name: 'ICPC Lead', role: 'Competitive Coding', initials: 'IL', bio: 'Driving DSA practice, contests, and ICPC regional preparation.' },
-      { name: 'CTF Lead', role: 'Cybersecurity & CTF', initials: 'CL', bio: 'Leading CTF training and cybersecurity bootcamps.' },
-      { name: 'GSoC Lead', role: 'Open Source Development', initials: 'GL', bio: 'Managing open-source projects, and GSoC mentorship.' },
-      { name: 'IEEE Xtreme Lead', role: 'Hackathons & IEEE Xtreme', initials: 'XL', bio: 'Steering team formations for 24-hour coding competitions and hackathons.' }
+      { name: 'Anish Patade', role: 'Competitive Coding', initials: 'AP', bio: 'Driving DSA practice, contests, and ICPC regional preparation.' },
+      { name: 'Kartik Totlani', role: 'Cybersecurity & CTF', initials: 'KT', bio: 'Leading CTF training and cybersecurity bootcamps.' },
+      { name: 'Pawan Patil', role: 'Open Source Development', initials: 'PP', bio: 'Managing open-source projects, and GSoC mentorship.' },
+      { name: 'Tushar Badlani', role: 'Hackathons & IEEE Xtreme', initials: 'TB', bio: 'Steering team formations for 24-hour coding competitions and hackathons.' }
     ]
   },
 
@@ -901,42 +902,33 @@ function renderTeamPage(app) {
       </div>
     </section>
 
-    <!-- Core Team -->
-    <section class="section" style="background: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <!-- Interactive Student Team Section -->
+    <section class="section" style="background: var(--bg-secondary); border-top: 1px solid var(--glass-border);">
       <div class="container">
-        <div class="section-header reveal">
-          <h2 class="section-title" style="font-size: 2rem;">⚙️ Core <span class="gradient-text">Team</span></h2>
+        <div class="section-header reveal" style="text-align: center; margin-bottom: 3rem;">
+          <h2 class="section-title">Student <span class="gradient-text">Structure</span></h2>
+          <p style="color: var(--text-secondary);">Filter by role or search for a specific member.</p>
         </div>
-        
-        <div class="team-grid">
-          ${team.core.map((m, i) => `
-            <div class="glass-card team-card reveal delay-${i + 1}">
-              <div class="avatar">${m.initials}</div>
-              <h3>${m.name}</h3>
-              <div class="role">${m.role}</div>
-              <div class="bio">${m.bio}</div>
-            </div>
-          `).join('')}
-        </div>
-      </div>
-    </section>
 
-    <!-- Domain Leads -->
-    <section class="section">
-      <div class="container">
-        <div class="section-header reveal">
-          <h2 class="section-title" style="font-size: 2rem;">🚀 Domain <span class="gradient-text">Leads</span></h2>
+        <!-- Search & Filter Bar -->
+        <div class="team-controls reveal" style="margin-bottom: 3rem; display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; align-items: center;">
+          <div class="search-box" style="position: relative; flex: 1; min-width: 300px; max-width: 500px;">
+            <input type="text" id="team-search" placeholder="Search by name, role, or department..." 
+              style="width: 100%; padding: 12px 20px 12px 45px; border-radius: 12px; border: 1px solid var(--glass-border); background: var(--glass-bg); color: var(--text-primary); font-family: var(--font-main);">
+            <span style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); opacity: 0.5;">🔍</span>
+          </div>
+          <div class="filter-chips" style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
+            <button class="chip active" data-filter="all">All</button>
+            <button class="chip" data-filter="core">Core</button>
+            <button class="chip" data-filter="leads">Leads</button>
+            <button class="chip" data-filter="associate">Associate</button>
+            <button class="chip" data-filter="member">Members</button>
+          </div>
         </div>
         
-        <div class="team-grid">
-          ${team.leads.map((m, i) => `
-            <div class="glass-card team-card reveal delay-${i + 1}">
-              <div class="avatar">${m.initials}</div>
-              <h3>${m.name}</h3>
-              <div class="role">${m.role}</div>
-              <div class="bio">${m.bio}</div>
-            </div>
-          `).join('')}
+        <div id="team-container" class="team-grid">
+          <!-- Dynamically populated -->
+          ${renderTeamCards(TEAM_DATA)}
         </div>
       </div>
     </section>
@@ -946,11 +938,71 @@ function renderTeamPage(app) {
         <div class="cta-banner reveal">
           <h2>Want to Be <span class="gradient-text">Part of the Team?</span></h2>
           <p>Core team applications open at the start of each academic year.</p>
-          <a href="#/join" class="btn btn-primary">Join the Club →</a>
+          <a href="#/join" class="btn btn-primary" style="text-decoration: none;">Join the Club →</a>
         </div>
       </div>
     </section>
   `;
+
+  // Attach dynamic logic
+  setupTeamInteractions();
+}
+
+function renderTeamCards(data) {
+  if (data.length === 0) {
+    return `<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-secondary);">No members found matching your criteria.</div>`;
+  }
+
+  return data.map((m, i) => `
+    <div class="glass-card team-card reveal" data-category="${m.category}" style="animation-delay: ${Math.min(i * 0.05, 1)}s">
+      <div class="avatar" style="background: var(--accent-gradient); color: white;">${m.name.split(' ').map(n => n[0]).join('')}</div>
+      <h3 style="margin-top: 1rem; font-size: 1.1rem;">${m.name}</h3>
+      <div class="role" style="color: var(--accent-1); font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem;">${m.role}</div>
+      <div class="dept" style="font-size: 0.8rem; opacity: 0.8;">${m.dept} • ${m.class}</div>
+      <div class="team-footer" style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--glass-border); display: flex; gap: 1rem; justify-content: center;">
+         <a href="mailto:${m.email}" title="${m.email}" style="font-size: 1.1rem; text-decoration: none;">📧</a>
+         ${m.mobile ? `<a href="tel:${m.mobile}" title="${m.mobile}" style="font-size: 1.1rem; text-decoration: none;">📱</a>` : ''}
+      </div>
+    </div>
+  `).join('');
+}
+
+function setupTeamInteractions() {
+  const searchInput = document.getElementById('team-search');
+  const chips = document.querySelectorAll('.chip');
+  const container = document.getElementById('team-container');
+
+  let currentFilter = 'all';
+  let currentSearch = '';
+
+  const updateDisplay = () => {
+    const filtered = TEAM_DATA.filter(m => {
+      const matchesFilter = currentFilter === 'all' || m.category === currentFilter;
+      const matchesSearch = m.name.toLowerCase().includes(currentSearch.toLowerCase()) ||
+        m.role.toLowerCase().includes(currentSearch.toLowerCase()) ||
+        m.dept.toLowerCase().includes(currentSearch.toLowerCase());
+      return matchesFilter && matchesSearch;
+    });
+
+    container.innerHTML = renderTeamCards(filtered);
+    // Trigger scroll reveal for new elements
+    setTimeout(setupScrollReveal, 100);
+    setTimeout(setupTiltCards, 200);
+  };
+
+  searchInput.addEventListener('input', (e) => {
+    currentSearch = e.target.value;
+    updateDisplay();
+  });
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      currentFilter = chip.dataset.filter;
+      updateDisplay();
+    });
+  });
 }
 
 function renderJoinPage(app) {

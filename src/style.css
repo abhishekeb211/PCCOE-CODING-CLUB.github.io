@@ -1289,6 +1289,44 @@ h6 {
   font-size: 0.85rem;
 }
 
+/* Team Controls */
+.chip {
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.chip:hover,
+.chip.active {
+  background: var(--accent-gradient);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: var(--accent-1);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+  background: var(--bg-card-hover);
+}
+
+.team-footer a {
+  transition: var(--transition);
+  opacity: 0.7;
+}
+
+.team-footer a:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
 /* --- TIMELINE (Roadmap) --- */
 .timeline {
   position: relative;
