@@ -26,27 +26,27 @@ const CLUB_DATA = {
   ],
 
   achievements: [
-    { badge: '🥇 1st Place', title: 'Smart India Hackathon (SIH)', desc: 'Past winners at IIT Gandhinagar. Facilitated 15 teams for SIH 2025-26, with 7 teams advancing past round one.', prize: '₹1,00,000', category: 'hackathon', image: './images/sih-2024-win.jpg' },
-    { badge: '🥉 3rd Place', title: 'AMD AI Sprint — AI Premier League', desc: 'Team (Tushar Badlani, Yash Varma, Soham Mhatre) secured 3rd in Track 1 using Qwen-3:4B, Llama-3.2:3B, LoRA, and dynamic K-shot prompting on AMD MI300x with 192GB VRAM.', prize: '₹50,000', category: 'hackathon', image: './images/amd-ai-sprint.jpg' },
+    { badge: '📡 ISRO RESPOND 2025', title: 'RES-SAC-2025-028 Proposal', desc: 'Title: "SDN-Based Network with Post-Quantum Cryptography for Secure and Optimized Traffic Management". <a href="https://www.sac.gov.in/respond/" target="_blank">View SAC RESPOND Portal</a>.', prize: 'Proposal Phase', category: 'research' },
+    { badge: '🔬 Research Portfolio', title: 'ISRO RESPOND References', desc: 'Managing several research proposals including RES-VSSC-2025-027, RES-SAC-2025-014, and RES-NRSC-2025-002. <a href="https://www.isro.gov.in/media_isro/pdf/Respond_Basket_2025.pdf" target="_blank">Download RESPOND Basket 2025</a>.', prize: 'Ongoing', category: 'research' },
     { badge: '🏅 Rank 52 — Kanpur Regionals', title: 'ICPC Kanpur Regional 2025', desc: 'Team PurpleSector3 (Anish Patade, Siddhesh Patil, Nishad Gangal) qualified for the regional round with Institute Rank 1 and All India Rank 142 in the Prelims. Represented PCCOE at IIT Kanpur (22–23 Dec 2025), solving 5 problems to finish Rank 52 nationally.', prize: null, category: 'coding' },
+    { badge: '🥉 3rd Place', title: 'AMD AI Sprint — AI Premier League', desc: 'Team (Tushar Badlani, Yash Varma, Soham Mhatre) secured 3rd in Track 1 using Qwen-3:4B, Llama-3.2:3B, LoRA, and dynamic K-shot prompting on AMD MI300x with 192GB VRAM.', prize: '₹50,000', category: 'hackathon', image: './images/amd-ai-sprint.jpg' },
     { badge: '🚀 SIH 2025 Selection', title: 'Smart India Hackathon (SIH)', desc: 'Facilitated 24 teams for SIH 2025 internal selection. Club mentors directly guided 15 teams on solution architecture and documentation for national submissions.', prize: null, category: 'hackathon' },
     { badge: '🚀 Hackathon Selection', title: 'Indradhanu IGC Hackathon', desc: '4 teams successfully selected for round two after rigorous preliminary evaluations.', prize: null, category: 'hackathon' },
     { badge: '💼 Placements', title: 'Industry Placements & Internships', desc: 'Members secured roles and SaaS internships at Google, CrowdStrike, ConnectWise, Quick Heal, PTC, Addepar, EQ Technologic, and Josh Software.', prize: null, category: 'opensource' },
     { badge: '🔐 Security Champions', title: 'CTF Competitions', desc: 'Strong performance across national CTF events, with team members excelling in web exploitation and cryptography challenges.', prize: null, category: 'ctf' },
-    { badge: '📡 ISRO RESPOND 2025', title: 'RES-SAC-2025-028 Proposal', desc: 'Title: "SDN-Based Network with Post-Quantum Cryptography for Secure and Optimized Traffic Management". <a href="https://www.sac.gov.in/respond/" target="_blank">View SAC RESPOND Portal</a>.', prize: 'Proposal Phase', category: 'research' },
-    { badge: '🔬 Research Portfolio', title: 'ISRO RESPOND References', desc: 'Managing several research proposals including RES-VSSC-2025-027, RES-SAC-2025-014, and RES-NRSC-2025-002. <a href="https://www.isro.gov.in/media_isro/pdf/Respond_Basket_2025.pdf" target="_blank">Download RESPOND Basket 2025</a>.', prize: 'Ongoing', category: 'research' },
-    { badge: '🌟 Open Source', title: 'GSoC & Open Source Selections', desc: 'Members selected for Google Summer of Code and contributed to major open-source projects including frameworks and developer tools.', prize: null, category: 'opensource' }
+    { badge: '🌟 Open Source', title: 'GSoC & Open Source Selections', desc: 'Members selected for Google Summer of Code and contributed to major open-source projects including frameworks and developer tools.', prize: null, category: 'opensource' },
+    { badge: '🥇 1st Place', title: 'Smart India Hackathon (SIH)', desc: 'Past winners at IIT Gandhinagar. Facilitated 15 teams for SIH 2025-26, with 7 teams advancing past round one.', prize: '₹1,00,000', category: 'hackathon', image: './images/sih-2024-win.jpg' }
   ],
 
   events: [
-    { date: 'Jul 2025', title: 'DSA & Placement Guidance Session', desc: 'Expert session by Vivek Gupta (AlgoZenith Founder, Ex-Google, ICPC World Finalist) on placement preparation and structured learning across DSA, CP, and Web Dev. Held at MECH Seminar Hall.', tag: 'Speaker', upcoming: false, image: './images/dsa-session.jpg' },
-    { date: 'Aug 2025', title: 'Algo Arena — DSA Contest', desc: 'Internal coding competition covering advanced DSA topics. Timed rounds with increasing difficulty.', tag: 'Contest', upcoming: true },
+    { date: '2026', title: 'Microsoft Tech Events', desc: 'Keep track of upcoming Microsoft technology waves and learning paths. <a href="https://www.microsoft.com/en-us/events" target="_blank">View Events</a>.', tag: 'Resource', upcoming: true },
+    { date: 'Dec 2025', title: 'IEEE ComputingEdge Hub', desc: 'Accessing the latest trends in computing via the IEEE Computer Society digital library. <a href="https://www.computer.org/publications/computing-edge/current-issue" target="_blank">Explore ComputingEdge</a>.', tag: 'Resource', upcoming: false },
+    { date: '8 Nov 2025', title: 'ICPC Online Preliminary Round', desc: 'Organized at PCCOE Computer Labs (1:00 PM–7:00 PM). 105 students (35 teams) competed. International programming competition.', tag: 'Contest', upcoming: false },
+    { date: 'Sep 2025', title: 'SIH 2025 Internal Selection', desc: 'Mentored 24 student teams for internal selection. Provided guidance on problem statements, documentation, and technical feasibility.', tag: 'Hackathon', upcoming: true },
     { date: 'Sep 2025', title: 'Web3 & Blockchain Workshop', desc: 'Two-day hands-on workshop on smart contracts, Solidity, and decentralized app development.', tag: 'Workshop', upcoming: true },
     { date: 'Sep 2025', title: 'CTF Bootcamp — CyberSec Week', desc: 'Intensive cybersecurity bootcamp with live CTF challenges, covering forensics, web exploitation, and crypto.', tag: 'Bootcamp', upcoming: true },
-    { date: '8 Nov 2025', title: 'ICPC Online Preliminary Round', desc: 'Organized at PCCOE Computer Labs (1:00 PM–7:00 PM). 105 students (35 teams) competed. International programming competition.', tag: 'Contest', upcoming: false },
-    { date: 'Dec 2025', title: 'IEEE ComputingEdge Hub', desc: 'Accessing the latest trends in computing via the IEEE Computer Society digital library. <a href="https://www.computer.org/publications/computing-edge/current-issue" target="_blank">Explore ComputingEdge</a>.', tag: 'Resource', upcoming: false },
-    { date: '2026', title: 'Microsoft Tech Events', desc: 'Keep track of upcoming Microsoft technology waves and learning paths. <a href="https://www.microsoft.com/en-us/events" target="_blank">View Events</a>.', tag: 'Resource', upcoming: true },
-    { date: 'Sep 2025', title: 'SIH 2025 Internal Selection', desc: 'Mentored 24 student teams for internal selection. Provided guidance on problem statements, documentation, and technical feasibility.', tag: 'Hackathon', upcoming: true },
+    { date: 'Aug 2025', title: 'Algo Arena — DSA Contest', desc: 'Internal coding competition covering advanced DSA topics. Timed rounds with increasing difficulty.', tag: 'Contest', upcoming: true },
+    { date: 'Jul 2025', title: 'DSA & Placement Guidance Session', desc: 'Expert session by Vivek Gupta (AlgoZenith Founder, Ex-Google, ICPC World Finalist) on placement preparation and structured learning across DSA, CP, and Web Dev. Held at MECH Seminar Hall.', tag: 'Speaker', upcoming: false, image: './images/dsa-session.jpg' },
     { date: 'Jan 2025', title: 'Google Gen AI Exchange Hackathon', desc: 'Participated in Google\'s Gen AI Exchange, building innovative AI-powered applications.', tag: 'Hackathon', upcoming: false },
     { date: 'Dec 2024', title: 'Open Source Sprint', desc: 'Week-long open source contribution drive, with mentorship for beginners on Git workflows and PR processes.', tag: 'Sprint', upcoming: false }
   ],
@@ -60,169 +60,6 @@ const CLUB_DATA = {
   ],
 
   blogs: [
-    {
-      id: 'sih-2024-win',
-      title: 'How We Won SIH 2024 at IIT Gandhinagar',
-      meta: { author: 'Mihir Pande', date: 'Oct 2024', readTime: '8 min' },
-      desc: 'Our journey from ideation to winning 1st place at Smart India Hackathon — team strategy, late-night debugging, and the final pitch.',
-      category: 'event-recap',
-      gradient: 'linear-gradient(135deg, #0ea5e9, #7c3aed)',
-      content: `
-        <h2>The Challenge</h2>
-        <p>Smart India Hackathon (SIH) is one of the most prestigious hackathons in the world. Our problem statement revolved around building a scalable, AI-driven educational tool for rural students.</p>
-        <h2>The Execution</h2>
-        <p>The 36-hour hackathon was an absolute grind. We split our team into three specialized groups: Frontend, AI integration, and Backend Architecture. After 24 hours, our backend crashed, forcing us to rebuild the API pipeline from scratch using Node.js instead of our initial Python setup.</p>
-        <h2>The Pitch</h2>
-        <p>Our final pitch at the IIT Gandhinagar nodal center focused on feasibility and scalability. The judges were particularly impressed with our offline-sync capability, which secured us the 1st place and ₹1,00,000 prize.</p>
-      `
-    },
-    {
-      id: 'cp-guide',
-      title: 'A Beginner\'s Guide to Competitive Programming',
-      meta: { author: 'Anish Patade', date: 'Nov 2024', readTime: '12 min' },
-      desc: 'Start your CP journey with the right mindset, platform choices, topic roadmap, and practice strategies used by our top-rated members.',
-      category: 'technical',
-      gradient: 'linear-gradient(135deg, #22c55e, #0ea5e9)',
-      content: `
-        <h2>Why CP?</h2>
-        <p>Competitive Programming isn't just about getting placed at FAANG; it's about training your brain to break down complex problems efficiently under time pressure.</p>
-        <h2>The Roadmap</h2>
-        <ol style="margin-left: 20px; line-height: 1.6; color: var(--text-secondary);">
-          <li><strong>Language Basics:</strong> Master C++ or Java. Understand array manipulation, strings, and standard libraries (STL in C++).</li>
-          <li><strong>Data Structures:</strong> Linked lists, Stacks, Queues, Trees, and Graphs.</li>
-          <li><strong>Algorithms:</strong> Sorting, Searching, Dynamic Programming, and Graph Traversal (BFS/DFS).</li>
-        </ol>
-        <h2>Where to Practice</h2>
-        <p>Start with Codeforces Div 3 and Div 4. Don't worry about your rating for the first 6 months. Just focus on upsolving the problem you couldn't solve during the contest.</p>
-      `
-    },
-    {
-      id: 'gsoc-story',
-      title: 'From Zero to GSoC: A Member\'s Story',
-      meta: { author: 'Pawan Patil', date: 'Dec 2024', readTime: '10 min' },
-      desc: 'How one of our members went from a first-year beginner to a GSoC contributor — the exact steps, resources, and community support.',
-      category: 'member-story',
-      gradient: 'linear-gradient(135deg, #f472b6, #7c3aed)',
-      content: `
-        <h2>The Beginning</h2>
-        <p>I started my college journey barely knowing what Git was. I attended the Open Source Sprint conducted by the Coding Club, where I made my first PR fixing a typo in a README file.</p>
-        <h2>The Grind</h2>
-        <p>I spent my second year learning React and Node.js. I started scanning GSoC organizations early in January. I found an organization that aligned with my tech stack and started contributing small bug fixes.</p>
-        <h2>The Proposal</h2>
-        <p>Writing the proposal took three weeks. I sought feedback from the seniors in the club who had previously cleared GSoC. Their guidance on architecture diagrams and timeline planning was invaluable. In May, I received the acceptance email!</p>
-      `
-    },
-    {
-      id: 'ctf-101',
-      title: 'Cybersecurity 101: Getting Started with CTFs',
-      meta: { author: 'Kartik Totlani', date: 'Jan 2025', readTime: '7 min' },
-      desc: 'Cracking your first CTF challenge — tools, platforms, and methodologies covered in our cybersecurity bootcamp series.',
-      category: 'technical',
-      gradient: 'linear-gradient(135deg, #ef4444, #f97316)',
-      content: `
-        <h2>What is a CTF?</h2>
-        <p>Capture The Flag (CTF) competitions are educational exercises where participants learn to exploit vulnerabilities, reverse engineer code, and decrypt ciphers to find a hidden string (the "flag").</p>
-        <h2>Essential Tools</h2>
-        <p>For web exploitation, you must learn Burp Suite. For forensics, become comfortable with Autopsy and binwalk. For cryptography, CyberChef is your best friend.</p>
-        <h2>Getting Started</h2>
-        <p>Start playing on picoCTF. It's the most beginner-friendly platform. Once you are comfortable there, transition to HackTheBox modules.</p>
-      `
-    },
-    {
-      id: 'amd-ai-sprint',
-      title: 'AMD AI Sprint: Behind the Scenes',
-      meta: { author: 'AI Team', date: 'Jul 2025', readTime: '6 min' },
-      desc: 'Building an AI solution under the pressure of a timed sprint — our architecture decisions, model training, and deployment strategy.',
-      category: 'event-recap',
-      gradient: 'linear-gradient(135deg, #7c3aed, #ec4899)',
-      content: `
-        <h2>The Rig</h2>
-        <p>We were given access to AMD MI300x GPUs with an insane 192GB VRAM. This hardware completely changed our approach, allowing us to experiment with local LLMs that we previously couldn't load.</p>
-        <h2>The Architecture</h2>
-        <p>We built two distinct AI agents: a Question Agent (using Qwen-3:4B) for MCQ generation, and an Answer Agent (Llama-3.2:3B) for solving. The interplay between these agents required dynamic K-shot prompting and multi-pass retrying loops.</p>
-        <h2>The Result</h2>
-        <p>Securing 3rd place and a ₹50,000 prize validated our architecture. The biggest takeaway was learning how to optimize LoRA and QLoRA pipelines on enterprise-grade AMD silicon.</p>
-      `
-    },
-    {
-      id: 'semester-plans',
-      title: 'Club Announcements: Semester Plans 2026',
-      meta: { author: 'Mihir Pande', date: 'Feb 2026', readTime: '4 min' },
-      desc: 'Upcoming workshops, contests, bootcamps, and speaker sessions planned for the current semester. Mark your calendars!',
-      category: 'announcement',
-      gradient: 'linear-gradient(135deg, #f59e0b, #22c55e)',
-      content: `
-        <h2>Welcome Back!</h2>
-        <p>This semester is packed with high-impact events. Our primary focus will be on competitive programming training and preparing teams for SIH 2026.</p>
-        <h2>Key Dates</h2>
-        <ul style="margin-left: 20px; line-height: 1.6; color: var(--text-secondary);">
-          <li><strong>March 15:</strong> Algo Arena DSA Contest</li>
-          <li><strong>March 28-29:</strong> Web3 & Blockchain Workshop</li>
-          <li><strong>April 10-15:</strong> CyberSec Week & CTF Bootcamp</li>
-        </ul>
-        <p>Register for these events via the links shared in the official WhatsApp groups. Let's make this semester our best one yet!</p>
-      `
-    },
-    {
-      id: 'ai-engineering',
-      title: 'The AI Engineering Handbook',
-      meta: { author: 'Mihir Pande', date: 'Feb 2026', readTime: '15 min' },
-      desc: 'How to start a career and excel as an AI Engineer — comprehensive guide covering technical skills and industry expectations.',
-      category: 'technical',
-      gradient: 'linear-gradient(135deg, #06b6d4, #3b82f6)',
-      content: `
-        <h2>Transitioning to AI</h2>
-        <p>AI Engineering is more than just running models. It's about data pipelines, model evaluation, and building scalable systems.</p>
-        <h2>Key Resources</h2>
-        <p>Refer to the <a href="https://www.freecodecamp.org/news/the-ai-engineering-handbook-how-to-start-a-career-and-excel-as-an-ai-engineer/" target="_blank">freeCodeCamp AI Engineering Handbook</a> for a deep dive.</p>
-      `
-    },
-    {
-      id: 'react-node-mastery',
-      title: 'Modern Web Stack: React & Node.js',
-      meta: { author: 'Siddhesh Patil', date: 'Jan 2026', readTime: '10 min' },
-      desc: 'Essential resources for mastering frontend and backend development with React and Node.js.',
-      category: 'technical',
-      gradient: 'linear-gradient(135deg, #61dafb, #68a063)',
-      content: `
-        <h2>React & Node.js</h2>
-        <p>Mastering the MERN stack requires a solid understanding of component lifecycle and asynchronous event loops.</p>
-        <h2>Official Documentation</h2>
-        <ul>
-          <li><a href="https://react.dev/" target="_blank">React.dev</a></li>
-          <li><a href="https://nodejs.org/en/docs" target="_blank">Node.js Docs</a></li>
-        </ul>
-        <h2>Tutorial Highlights</h2>
-        <p>Check out "Every React Concept Explained in 12 Minutes" and "Node.js Ultimate Beginner’s Guide" on YouTube for rapid learning.</p>
-      `
-    },
-    {
-      id: 'claude-code',
-      title: 'Agentic Coding with Claude Code',
-      meta: { author: 'Ashish Suryawanshi', date: 'Feb 2026', readTime: '8 min' },
-      desc: 'Exploring developer tooling and AI coding assistants for faster, smarter development workflows.',
-      category: 'technical',
-      gradient: 'linear-gradient(135deg, #f59e0b, #ef4444)',
-      content: `
-        <h2>What is Claude Code?</h2>
-        <p>Claude Code is an agentic coding tool that reads codebases, edits files, and runs commands, integrating deeply with development workflows.</p>
-        <p>Learn more at the <a href="https://code.claude.com/docs/en/overview" target="_blank">Claude Code Docs</a>.</p>
-      `
-    },
-    {
-      id: 'research-framework',
-      title: 'A Framework for Comprehensive Research',
-      meta: { author: 'Mr. Abhishek S. Raut', date: 'Jan 2026', readTime: '20 min' },
-      desc: 'Master methodology for technical writing, literature reviews, and building self-correcting research pipelines.',
-      category: 'technical',
-      gradient: 'linear-gradient(135deg, #10b981, #059669)',
-      content: `
-        <h2>Research Paper Development</h2>
-        <p>A structured approach to academic research design, architecture design, and publication workflows is essential for high-impact results.</p>
-        <h2>Research Agent Pipeline</h2>
-        <p>We implement a phase-locked execution model with research ledgers and evaluation framing to ensure technical rigor in all our club projects.</p>
-      `
-    },
     {
       id: 'super-ide-orchestrator',
       title: 'The Super-IDE Orchestrator: Our Operating Framework',
@@ -263,6 +100,169 @@ const CLUB_DATA = {
 
         <h2>Goal Framing (The Contract)</h2>
         <p>Every project starts with a Goal Contract covering User Outcomes, Acceptance Checks, Operational Constraints, and a Rollback Plan. This ensures traceability and evidence-based progress throughout the lifecycle.</p>
+      `
+    },
+    {
+      id: 'ai-engineering',
+      title: 'The AI Engineering Handbook',
+      meta: { author: 'Mihir Pande', date: 'Feb 2026', readTime: '15 min' },
+      desc: 'How to start a career and excel as an AI Engineer — comprehensive guide covering technical skills and industry expectations.',
+      category: 'technical',
+      gradient: 'linear-gradient(135deg, #06b6d4, #3b82f6)',
+      content: `
+        <h2>Transitioning to AI</h2>
+        <p>AI Engineering is more than just running models. It's about data pipelines, model evaluation, and building scalable systems.</p>
+        <h2>Key Resources</h2>
+        <p>Refer to the <a href="https://www.freecodecamp.org/news/the-ai-engineering-handbook-how-to-start-a-career-and-excel-as-an-ai-engineer/" target="_blank">freeCodeCamp AI Engineering Handbook</a> for a deep dive.</p>
+      `
+    },
+    {
+      id: 'claude-code',
+      title: 'Agentic Coding with Claude Code',
+      meta: { author: 'Ashish Suryawanshi', date: 'Feb 2026', readTime: '8 min' },
+      desc: 'Exploring developer tooling and AI coding assistants for faster, smarter development workflows.',
+      category: 'technical',
+      gradient: 'linear-gradient(135deg, #f59e0b, #ef4444)',
+      content: `
+        <h2>What is Claude Code?</h2>
+        <p>Claude Code is an agentic coding tool that reads codebases, edits files, and runs commands, integrating deeply with development workflows.</p>
+        <p>Learn more at the <a href="https://code.claude.com/docs/en/overview" target="_blank">Claude Code Docs</a>.</p>
+      `
+    },
+    {
+      id: 'semester-plans',
+      title: 'Club Announcements: Semester Plans 2026',
+      meta: { author: 'Mihir Pande', date: 'Feb 2026', readTime: '4 min' },
+      desc: 'Upcoming workshops, contests, bootcamps, and speaker sessions planned for the current semester. Mark your calendars!',
+      category: 'announcement',
+      gradient: 'linear-gradient(135deg, #f59e0b, #22c55e)',
+      content: `
+        <h2>Welcome Back!</h2>
+        <p>This semester is packed with high-impact events. Our primary focus will be on competitive programming training and preparing teams for SIH 2026.</p>
+        <h2>Key Dates</h2>
+        <ul style="margin-left: 20px; line-height: 1.6; color: var(--text-secondary);">
+          <li><strong>March 15:</strong> Algo Arena DSA Contest</li>
+          <li><strong>March 28-29:</strong> Web3 & Blockchain Workshop</li>
+          <li><strong>April 10-15:</strong> CyberSec Week & CTF Bootcamp</li>
+        </ul>
+        <p>Register for these events via the links shared in the official WhatsApp groups. Let's make this semester our best one yet!</p>
+      `
+    },
+    {
+      id: 'research-framework',
+      title: 'A Framework for Comprehensive Research',
+      meta: { author: 'Mr. Abhishek S. Raut', date: 'Jan 2026', readTime: '20 min' },
+      desc: 'Master methodology for technical writing, literature reviews, and building self-correcting research pipelines.',
+      category: 'technical',
+      gradient: 'linear-gradient(135deg, #10b981, #059669)',
+      content: `
+        <h2>Research Paper Development</h2>
+        <p>A structured approach to academic research design, architecture design, and publication workflows is essential for high-impact results.</p>
+        <h2>Research Agent Pipeline</h2>
+        <p>We implement a phase-locked execution model with research ledgers and evaluation framing to ensure technical rigor in all our club projects.</p>
+      `
+    },
+    {
+      id: 'react-node-mastery',
+      title: 'Modern Web Stack: React & Node.js',
+      meta: { author: 'Siddhesh Patil', date: 'Jan 2026', readTime: '10 min' },
+      desc: 'Essential resources for mastering frontend and backend development with React and Node.js.',
+      category: 'technical',
+      gradient: 'linear-gradient(135deg, #61dafb, #68a063)',
+      content: `
+        <h2>React & Node.js</h2>
+        <p>Mastering the MERN stack requires a solid understanding of component lifecycle and asynchronous event loops.</p>
+        <h2>Official Documentation</h2>
+        <ul>
+          <li><a href="https://react.dev/" target="_blank">React.dev</a></li>
+          <li><a href="https://nodejs.org/en/docs" target="_blank">Node.js Docs</a></li>
+        </ul>
+        <h2>Tutorial Highlights</h2>
+        <p>Check out "Every React Concept Explained in 12 Minutes" and "Node.js Ultimate Beginner’s Guide" on YouTube for rapid learning.</p>
+      `
+    },
+    {
+      id: 'amd-ai-sprint',
+      title: 'AMD AI Sprint: Behind the Scenes',
+      meta: { author: 'AI Team', date: 'Jul 2025', readTime: '6 min' },
+      desc: 'Building an AI solution under the pressure of a timed sprint — our architecture decisions, model training, and deployment strategy.',
+      category: 'event-recap',
+      gradient: 'linear-gradient(135deg, #7c3aed, #ec4899)',
+      content: `
+        <h2>The Rig</h2>
+        <p>We were given access to AMD MI300x GPUs with an insane 192GB VRAM. This hardware completely changed our approach, allowing us to experiment with local LLMs that we previously couldn't load.</p>
+        <h2>The Architecture</h2>
+        <p>We built two distinct AI agents: a Question Agent (using Qwen-3:4B) for MCQ generation, and an Answer Agent (Llama-3.2:3B) for solving. The interplay between these agents required dynamic K-shot prompting and multi-pass retrying loops.</p>
+        <h2>The Result</h2>
+        <p>Securing 3rd place and a ₹50,000 prize validated our architecture. The biggest takeaway was learning how to optimize LoRA and QLoRA pipelines on enterprise-grade AMD silicon.</p>
+      `
+    },
+    {
+      id: 'ctf-101',
+      title: 'Cybersecurity 101: Getting Started with CTFs',
+      meta: { author: 'Kartik Totlani', date: 'Jan 2025', readTime: '7 min' },
+      desc: 'Cracking your first CTF challenge — tools, platforms, and methodologies covered in our cybersecurity bootcamp series.',
+      category: 'technical',
+      gradient: 'linear-gradient(135deg, #ef4444, #f97316)',
+      content: `
+        <h2>What is a CTF?</h2>
+        <p>Capture The Flag (CTF) competitions are educational exercises where participants learn to exploit vulnerabilities, reverse engineer code, and decrypt ciphers to find a hidden string (the "flag").</p>
+        <h2>Essential Tools</h2>
+        <p>For web exploitation, you must learn Burp Suite. For forensics, become comfortable with Autopsy and binwalk. For cryptography, CyberChef is your best friend.</p>
+        <h2>Getting Started</h2>
+        <p>Start playing on picoCTF. It's the most beginner-friendly platform. Once you are comfortable there, transition to HackTheBox modules.</p>
+      `
+    },
+    {
+      id: 'gsoc-story',
+      title: 'From Zero to GSoC: A Member\'s Story',
+      meta: { author: 'Pawan Patil', date: 'Dec 2024', readTime: '10 min' },
+      desc: 'How one of our members went from a first-year beginner to a GSoC contributor — the exact steps, resources, and community support.',
+      category: 'member-story',
+      gradient: 'linear-gradient(135deg, #f472b6, #7c3aed)',
+      content: `
+        <h2>The Beginning</h2>
+        <p>I started my college journey barely knowing what Git was. I attended the Open Source Sprint conducted by the Coding Club, where I made my first PR fixing a typo in a README file.</p>
+        <h2>The Grind</h2>
+        <p>I spent my second year learning React and Node.js. I started scanning GSoC organizations early in January. I found an organization that aligned with my tech stack and started contributing small bug fixes.</p>
+        <h2>The Proposal</h2>
+        <p>Writing the proposal took three weeks. I sought feedback from the seniors in the club who had previously cleared GSoC. Their guidance on architecture diagrams and timeline planning was invaluable. In May, I received the acceptance email!</p>
+      `
+    },
+    {
+      id: 'cp-guide',
+      title: 'A Beginner\'s Guide to Competitive Programming',
+      meta: { author: 'Anish Patade', date: 'Nov 2024', readTime: '12 min' },
+      desc: 'Start your CP journey with the right mindset, platform choices, topic roadmap, and practice strategies used by our top-rated members.',
+      category: 'technical',
+      gradient: 'linear-gradient(135deg, #22c55e, #0ea5e9)',
+      content: `
+        <h2>Why CP?</h2>
+        <p>Competitive Programming isn't just about getting placed at FAANG; it's about training your brain to break down complex problems efficiently under time pressure.</p>
+        <h2>The Roadmap</h2>
+        <ol style="margin-left: 20px; line-height: 1.6; color: var(--text-secondary);">
+          <li><strong>Language Basics:</strong> Master C++ or Java. Understand array manipulation, strings, and standard libraries (STL in C++).</li>
+          <li><strong>Data Structures:</strong> Linked lists, Stacks, Queues, Trees, and Graphs.</li>
+          <li><strong>Algorithms:</strong> Sorting, Searching, Dynamic Programming, and Graph Traversal (BFS/DFS).</li>
+        </ol>
+        <h2>Where to Practice</h2>
+        <p>Start with Codeforces Div 3 and Div 4. Don't worry about your rating for the first 6 months. Just focus on upsolving the problem you couldn't solve during the contest.</p>
+      `
+    },
+    {
+      id: 'sih-2024-win',
+      title: 'How We Won SIH 2024 at IIT Gandhinagar',
+      meta: { author: 'Mihir Pande', date: 'Oct 2024', readTime: '8 min' },
+      desc: 'Our journey from ideation to winning 1st place at Smart India Hackathon — team strategy, late-night debugging, and the final pitch.',
+      category: 'event-recap',
+      gradient: 'linear-gradient(135deg, #0ea5e9, #7c3aed)',
+      content: `
+        <h2>The Challenge</h2>
+        <p>Smart India Hackathon (SIH) is one of the most prestigious hackathons in the world. Our problem statement revolved around building a scalable, AI-driven educational tool for rural students.</p>
+        <h2>The Execution</h2>
+        <p>The 36-hour hackathon was an absolute grind. We split our team into three specialized groups: Frontend, AI integration, and Backend Architecture. After 24 hours, our backend crashed, forcing us to rebuild the API pipeline from scratch using Node.js instead of our initial Python setup.</p>
+        <h2>The Pitch</h2>
+        <p>Our final pitch at the IIT Gandhinagar nodal center focused on feasibility and scalability. The judges were particularly impressed with our offline-sync capability, which secured us the 1st place and ₹1,00,000 prize.</p>
       `
     }
   ],
