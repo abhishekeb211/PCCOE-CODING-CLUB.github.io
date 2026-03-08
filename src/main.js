@@ -33,6 +33,8 @@ const CLUB_DATA = {
     { badge: '🚀 Hackathon Selection', title: 'Indradhanu IGC Hackathon', desc: '4 teams successfully selected for round two after rigorous preliminary evaluations.', prize: null, category: 'hackathon' },
     { badge: '💼 Placements', title: 'Industry Placements & Internships', desc: 'Members secured roles and SaaS internships at Google, CrowdStrike, ConnectWise, Quick Heal, PTC, Addepar, EQ Technologic, and Josh Software.', prize: null, category: 'opensource' },
     { badge: '🔐 Security Champions', title: 'CTF Competitions', desc: 'Strong performance across national CTF events, with team members excelling in web exploitation and cryptography challenges.', prize: null, category: 'ctf' },
+    { badge: '📡 ISRO RESPOND 2025', title: 'RES-SAC-2025-028 Proposal', desc: 'Title: "SDN-Based Network with Post-Quantum Cryptography for Secure and Optimized Traffic Management". Submitted for SAC RESPOND Basket.', prize: 'Proposal Phase', category: 'research' },
+    { badge: '🔬 Research Portfolio', title: 'ISRO RESPOND References', desc: 'Managing several research proposals including RES-VSSC-2025-027, RES-SAC-2025-014, RES-SAC-2025-023, and RES-NRSC-2025-002.', prize: 'Ongoing', category: 'research' },
     { badge: '🌟 Open Source', title: 'GSoC & Open Source Selections', desc: 'Members selected for Google Summer of Code and contributed to major open-source projects including frameworks and developer tools.', prize: null, category: 'opensource' }
   ],
 
@@ -41,7 +43,8 @@ const CLUB_DATA = {
     { date: 'Aug 2025', title: 'Algo Arena — DSA Contest', desc: 'Internal coding competition covering advanced DSA topics. Timed rounds with increasing difficulty.', tag: 'Contest', upcoming: true },
     { date: 'Sep 2025', title: 'Web3 & Blockchain Workshop', desc: 'Two-day hands-on workshop on smart contracts, Solidity, and decentralized app development.', tag: 'Workshop', upcoming: true },
     { date: 'Sep 2025', title: 'CTF Bootcamp — CyberSec Week', desc: 'Intensive cybersecurity bootcamp with live CTF challenges, covering forensics, web exploitation, and crypto.', tag: 'Bootcamp', upcoming: true },
-    { date: '8 Nov 2025', title: 'ICPC Online Preliminary Round', desc: 'Organized in association with CESA and ACM at PCCOE Computer Labs. 105 students (35 teams) competed. Team PurpleSector3 topped with 5 problems solved, AIR 142, and qualified for Kanpur Regionals.', tag: 'Contest', upcoming: false },
+    { date: '8 Nov 2025', title: 'ICPC Online Preliminary Round', desc: 'Organized at PCCOE Computer Labs (1:00 PM–7:00 PM). 105 students (35 teams) competed. International programming competition focused on problem-solving and teamwork.', tag: 'Contest', upcoming: false },
+    { date: 'Dec 2025', title: 'IEEE ComputingEdge Hub', desc: 'Accessing the latest trends in computing via the IEEE Computer Society digital library.', tag: 'Resource', upcoming: false },
     { date: 'Sep 2025', title: 'SIH 2025 Internal Selection', desc: 'Mentored 24 student teams for internal selection. Provided guidance on problem statements, documentation, and technical feasibility.', tag: 'Hackathon', upcoming: true },
     { date: 'Jan 2025', title: 'Google Gen AI Exchange Hackathon', desc: 'Participated in Google\'s Gen AI Exchange, building innovative AI-powered applications.', tag: 'Hackathon', upcoming: false },
     { date: 'Dec 2024', title: 'Open Source Sprint', desc: 'Week-long open source contribution drive, with mentorship for beginners on Git workflows and PR processes.', tag: 'Sprint', upcoming: false }
@@ -157,6 +160,66 @@ const CLUB_DATA = {
           <li><strong>April 10-15:</strong> CyberSec Week & CTF Bootcamp</li>
         </ul>
         <p>Register for these events via the links shared in the official WhatsApp groups. Let's make this semester our best one yet!</p>
+      `
+    },
+    {
+      id: 'ai-engineering',
+      title: 'The AI Engineering Handbook',
+      meta: { author: 'Mihir Pande', date: 'Feb 2026', readTime: '15 min' },
+      desc: 'How to start a career and excel as an AI Engineer — comprehensive guide covering technical skills and industry expectations.',
+      category: 'technical',
+      gradient: 'linear-gradient(135deg, #06b6d4, #3b82f6)',
+      content: `
+        <h2>Transitioning to AI</h2>
+        <p>AI Engineering is more than just running models. It's about data pipelines, model evaluation, and building scalable systems.</p>
+        <h2>Key Resources</h2>
+        <p>Refer to the <a href="https://www.freecodecamp.org/news/the-ai-engineering-handbook-how-to-start-a-career-and-excel-as-an-ai-engineer/" target="_blank">freeCodeCamp AI Engineering Handbook</a> for a deep dive.</p>
+      `
+    },
+    {
+      id: 'react-node-mastery',
+      title: 'Modern Web Stack: React & Node.js',
+      meta: { author: 'Siddhesh Patil', date: 'Jan 2026', readTime: '10 min' },
+      desc: 'Essential resources for mastering frontend and backend development with React and Node.js.',
+      category: 'technical',
+      gradient: 'linear-gradient(135deg, #61dafb, #68a063)',
+      content: `
+        <h2>React & Node.js</h2>
+        <p>Mastering the MERN stack requires a solid understanding of component lifecycle and asynchronous event loops.</p>
+        <h2>Official Documentation</h2>
+        <ul>
+          <li><a href="https://react.dev/" target="_blank">React.dev</a></li>
+          <li><a href="https://nodejs.org/en/docs" target="_blank">Node.js Docs</a></li>
+        </ul>
+        <h2>Tutorial Highlights</h2>
+        <p>Check out "Every React Concept Explained in 12 Minutes" and "Node.js Ultimate Beginner’s Guide" on YouTube for rapid learning.</p>
+      `
+    },
+    {
+      id: 'claude-code',
+      title: 'Agentic Coding with Claude Code',
+      meta: { author: 'Ashish Suryawanshi', date: 'Feb 2026', readTime: '8 min' },
+      desc: 'Exploring developer tooling and AI coding assistants for faster, smarter development workflows.',
+      category: 'technical',
+      gradient: 'linear-gradient(135deg, #f59e0b, #ef4444)',
+      content: `
+        <h2>What is Claude Code?</h2>
+        <p>Claude Code is an agentic coding tool that reads codebases, edits files, and runs commands, integrating deeply with development workflows.</p>
+        <p>Learn more at the <a href="https://code.claude.com/docs/en/overview" target="_blank">Claude Code Docs</a>.</p>
+      `
+    },
+    {
+      id: 'research-framework',
+      title: 'A Framework for Comprehensive Research',
+      meta: { author: 'Mr. Abhishek S. Raut', date: 'Jan 2026', readTime: '20 min' },
+      desc: 'Master methodology for technical writing, literature reviews, and building self-correcting research pipelines.',
+      category: 'technical',
+      gradient: 'linear-gradient(135deg, #10b981, #059669)',
+      content: `
+        <h2>Research Paper Development</h2>
+        <p>A structured approach to academic research design, architecture design, and publication workflows is essential for high-impact results.</p>
+        <h2>Research Agent Pipeline</h2>
+        <p>We implement a phase-locked execution model with research ledgers and evaluation framing to ensure technical rigor in all our club projects.</p>
       `
     }
   ],
