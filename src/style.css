@@ -1904,7 +1904,12 @@ h6 {
     display: none;
   }
 
-  .achievements-grid {
+  .achievements-grid,
+  .events-grid,
+  .blog-grid,
+  .team-grid,
+  .about-grid,
+  .focus-grid {
     grid-template-columns: 1fr;
   }
 

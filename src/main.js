@@ -556,6 +556,24 @@ function setupScrollReveal() {
 // ========================= INTERACTIONS =========================
 
 function setupInteractions() {
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+
+    // Close on link click
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('open');
+      });
+    });
+  }
+
   // Animated counters
   document.querySelectorAll('[data-count]').forEach(el => {
     const target = parseInt(el.dataset.count);
