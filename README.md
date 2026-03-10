@@ -10,7 +10,7 @@ Welcome to the official repository for the **PCCoE Coding Club** website! This i
 
 - **Blazing Fast SPA Routing**: Custom hash-based router implemented in pure JavaScript for instant page transitions without reloading.
 - **Advanced Theming & Glassmorphism**:
-  - Multiple theme modes: **Modern Glass**, **Professional Light**, and **Hacker Mode** (Red/High-Contrast).
+  - Multiple theme modes: **Modern Glass** and **Hacker Mode** (Red/High-Contrast).
   - Dark mode specific glassmorphism design system (`backdrop-filter`) for cards and navbar.
   - Smooth global theme transitions without visual artifacts.
 - **Progressive Web App (PWA)**: Optimized for mobile experience with offline capabilities and "Add to Home Screen" support.
