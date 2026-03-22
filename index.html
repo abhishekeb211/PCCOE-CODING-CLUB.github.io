@@ -9,9 +9,9 @@
   <meta name="description"
     content="PCCoE Coding Club is a student-driven community focused on competitive programming, hackathons, cybersecurity, open-source development, and research." />
 
-  <!-- Strict Security Meta Tags -->
+  <!-- Strict Security Meta Tags (style-src still allows unsafe-inline: routed templates use inline style=) -->
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://region1.google-analytics.com;" />
+    content="default-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://region1.google-analytics.com;" />
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta http-equiv="X-Frame-Options" content="DENY" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
@@ -25,35 +25,8 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="stylesheet" href="/src/style.css" />
 
-  <!-- Google tag (gtag.js) - REPLACE G-XXXXXXXXXX WITH YOUR ACTUAL MEASUREMENT ID -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { window.dataLayer.push(arguments); }
-    const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
-    const gaIdValid =
-      GA_MEASUREMENT_ID &&
-      GA_MEASUREMENT_ID !== 'G-XXXXXXXXXX' &&
-      /^G-[A-Z0-9]+$/.test(GA_MEASUREMENT_ID);
-
-    function loadAnalytics() {
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-      script.onload = () => {
-        gtag('js', new Date());
-        gtag('config', GA_MEASUREMENT_ID);
-      };
-      document.head.appendChild(script);
-    }
-
-    if (gaIdValid) {
-      if ('requestIdleCallback' in window) {
-        window.requestIdleCallback(loadAnalytics, { timeout: 2000 });
-      } else {
-        window.addEventListener('load', loadAnalytics, { once: true });
-      }
-    }
-  </script>
+  <!-- Google tag: edit GA_MEASUREMENT_ID in /ga-init.js when you have a real property ID -->
+  <script defer src="/ga-init.js"></script>
 </head>
 
 <body>
@@ -127,9 +100,9 @@
         <div class="footer-links-col">
           <h4>Connect</h4>
           <ul>
-            <li><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
-            <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
-            <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
             <li><a href="mailto:codingclub@pccoepune.org">Email</a></li>
           </ul>
         </div>

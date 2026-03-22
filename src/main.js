@@ -5,6 +5,16 @@
 import './style.css';
 import { TEAM_DATA } from './teamData.js';
 
+function escapeHtml(value) {
+  if (value == null) return '';
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 // ========================= DATA =========================
 
 const CLUB_DATA = {
@@ -27,8 +37,8 @@ const CLUB_DATA = {
 
   achievements: [
     { badge: '🏅 Finalist', title: 'Fujitsu Quantum Challenge 2026', desc: 'Reached the final round of this prestigious global quantum computing competition. One of the few teams from India to advance to the final stage.', prize: 'Ongoing', category: 'coding' },
-    { badge: '📡 ISRO RESPOND 2025', title: 'RES-SAC-2025-028 Proposal', desc: 'Title: "SDN-Based Network with Post-Quantum Cryptography for Secure and Optimized Traffic Management". <a href="https://www.sac.gov.in/respond/" target="_blank">View SAC RESPOND Portal</a>.', prize: 'Proposal Phase', category: 'research' },
-    { badge: '🔬 Research Portfolio', title: 'ISRO RESPOND References', desc: 'Managing several research proposals including RES-VSSC-2025-027, RES-SAC-2025-014, and RES-NRSC-2025-002. <a href="https://www.isro.gov.in/media_isro/pdf/Respond_Basket_2025.pdf" target="_blank">Download RESPOND Basket 2025</a>.', prize: 'Ongoing', category: 'research' },
+    { badge: '📡 ISRO RESPOND 2025', title: 'RES-SAC-2025-028 Proposal', desc: 'Title: "SDN-Based Network with Post-Quantum Cryptography for Secure and Optimized Traffic Management". <a href="https://www.sac.gov.in/respond/" target="_blank" rel="noopener noreferrer">View SAC RESPOND Portal</a>.', prize: 'Proposal Phase', category: 'research' },
+    { badge: '🔬 Research Portfolio', title: 'ISRO RESPOND References', desc: 'Managing several research proposals including RES-VSSC-2025-027, RES-SAC-2025-014, and RES-NRSC-2025-002. <a href="https://www.isro.gov.in/media_isro/pdf/Respond_Basket_2025.pdf" target="_blank" rel="noopener noreferrer">Download RESPOND Basket 2025</a>.', prize: 'Ongoing', category: 'research' },
     { badge: '🏅 Rank 52 — Kanpur Regionals', title: 'ICPC Kanpur Regional 2025', desc: 'Team PurpleSector3 (Anish Patade, Siddhesh Patil, Nishad Gangal) qualified for the regional round with Institute Rank 1 and All India Rank 142 in the Prelims. Represented PCCOE at IIT Kanpur (22–23 Dec 2025), solving 5 problems to finish Rank 52 nationally.', prize: null, category: 'coding' },
     { badge: '🚀 Top 10 — Mumbai Hacks', title: 'Mumbai Hacks 2025', desc: 'Secured a spot in the Top 10 teams. Successfully tested PQC (Post-Quantum Cryptography) algorithms on the Airawat Supercomputer at C-DAC.', prize: 'C-DAC Recognition', category: 'hackathon' },
     { badge: '🥉 3rd Place', title: 'AMD AI Sprint — AI Premier League', desc: 'Team (Tushar Badlani, Yash Varma, Soham Mhatre) secured 3rd in Track 1 using Qwen-3:4B, Llama-3.2:3B, LoRA, and dynamic K-shot prompting on AMD MI300x with 192GB VRAM.', prize: '₹50,000', category: 'hackathon', image: './images/amd-ai-sprint.jpg' },
@@ -47,12 +57,12 @@ const CLUB_DATA = {
     { date: 'Jul–Aug 2026', title: 'SIH 2026 Internal Hackathon', desc: 'Internal shortlisting for Smart India Hackathon 2026. Pitch your hardware/software solutions for national problem statements.', tag: 'Hackathon', upcoming: true },
     { date: 'May–Jun 2026', title: 'Google Hash Code & Kick Start', desc: 'Global coding contests focusing on optimization and algorithmic problem solving. Stay tuned for the PCCoE Hub registrations.', tag: 'Contest', upcoming: true },
     { date: 'March–April 2026', title: 'IIT Research Internships', desc: 'Application window for research internships and competitions at major IITs.', tag: 'Resource', upcoming: true },
-    { date: '2026', title: 'Microsoft Tech Events', desc: 'Keep track of upcoming Microsoft technology waves and learning paths. <a href="https://www.microsoft.com/en-us/events" target="_blank">View Events</a>.', tag: 'Resource', upcoming: true },
+    { date: '2026', title: 'Microsoft Tech Events', desc: 'Keep track of upcoming Microsoft technology waves and learning paths. <a href="https://www.microsoft.com/en-us/events" target="_blank" rel="noopener noreferrer">View Events</a>.', tag: 'Resource', upcoming: true },
     { date: 'Feb–Mar 2026', title: 'Meta Hacker Cup 2026', desc: 'Facebook\'s annual open world programming competition. Practice rounds and team discussions in the lab.', tag: 'Contest', upcoming: true },
     { date: 'Dec 2025', title: 'Innovision (NIT Rourkela)', desc: 'One of Eastern India\'s largest technical festivals. Participate in diverse coding and robotics challenges.', tag: 'Tech-Fest', upcoming: false },
     { date: 'Dec 2025', title: 'Cognitia (NIT Durgapur)', desc: 'Annual technical festival featuring innovation showcases and competitive events.', tag: 'Tech-Fest', upcoming: false },
     { date: 'Dec 2025', title: 'Aparoksha (NIT Allahabad)', desc: 'Flagship technical festival of IIIT-A, known for high-quality hackathons and coding contests.', tag: 'Tech-Fest', upcoming: false },
-    { date: 'Dec 2025', title: 'IEEE ComputingEdge Hub', desc: 'Accessing the latest trends in computing via the IEEE Computer Society digital library. <a href="https://www.computer.org/publications/computing-edge/current-issue" target="_blank">Explore ComputingEdge</a>.', tag: 'Resource', upcoming: false },
+    { date: 'Dec 2025', title: 'IEEE ComputingEdge Hub', desc: 'Accessing the latest trends in computing via the IEEE Computer Society digital library. <a href="https://www.computer.org/publications/computing-edge/current-issue" target="_blank" rel="noopener noreferrer">Explore ComputingEdge</a>.', tag: 'Resource', upcoming: false },
     { date: 'Nov 2025', title: 'DST INSPIRE Scholarship Exam', desc: 'National-level scholarship application for science and technology students.', tag: 'Exam', upcoming: false },
     { date: '8 Nov 2025', title: 'ICPC Online Preliminary Round', desc: 'Organized at PCCOE Computer Labs (1:00 PM–7:00 PM). 105 students (35 teams) competed. International programming competition.', tag: 'Contest', upcoming: false },
     { date: 'Sep 2025', title: 'SIH 2025 Internal Selection', desc: 'Mentored 24 student teams for internal selection. Provided guidance on problem statements, documentation, and technical feasibility.', tag: 'Hackathon', upcoming: true },
@@ -151,31 +161,31 @@ const CLUB_DATA = {
                 <td style="padding: 0.8rem;">1</td>
                 <td style="padding: 0.8rem;">Unstop</td>
                 <td style="padding: 0.8rem;">National Hackathons</td>
-                <td style="padding: 0.8rem;"><a href="https://unstop.com/" target="_blank">Visit</a></td>
+                <td style="padding: 0.8rem;"><a href="https://unstop.com/" target="_blank" rel="noopener noreferrer">Visit</a></td>
               </tr>
               <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
                 <td style="padding: 0.8rem;">2</td>
                 <td style="padding: 0.8rem;">HackerEarth</td>
                 <td style="padding: 0.8rem;">Corporate Challenges</td>
-                <td style="padding: 0.8rem;"><a href="https://hackerearth.com/" target="_blank">Visit</a></td>
+                <td style="padding: 0.8rem;"><a href="https://hackerearth.com/" target="_blank" rel="noopener noreferrer">Visit</a></td>
               </tr>
               <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
                 <td style="padding: 0.8rem;">3</td>
                 <td style="padding: 0.8rem;">MachineHack</td>
                 <td style="padding: 0.8rem;">AI/ML Hackathons</td>
-                <td style="padding: 0.8rem;"><a href="https://machinehack.com/" target="_blank">Visit</a></td>
+                <td style="padding: 0.8rem;"><a href="https://machinehack.com/" target="_blank" rel="noopener noreferrer">Visit</a></td>
               </tr>
               <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
                 <td style="padding: 0.8rem;">4</td>
                 <td style="padding: 0.8rem;">GeeksforGeeks</td>
                 <td style="padding: 0.8rem;">Coding Contests</td>
-                <td style="padding: 0.8rem;"><a href="https://practice.geeksforgeeks.org/" target="_blank">Visit</a></td>
+                <td style="padding: 0.8rem;"><a href="https://practice.geeksforgeeks.org/" target="_blank" rel="noopener noreferrer">Visit</a></td>
               </tr>
               <tr>
                 <td style="padding: 0.8rem;">5</td>
                 <td style="padding: 0.8rem;">NPTEL</td>
                 <td style="padding: 0.8rem;">Academic Competitions</td>
-                <td style="padding: 0.8rem;"><a href="https://nptel.ac.in/" target="_blank">Visit</a></td>
+                <td style="padding: 0.8rem;"><a href="https://nptel.ac.in/" target="_blank" rel="noopener noreferrer">Visit</a></td>
               </tr>
             </tbody>
           </table>
@@ -235,7 +245,7 @@ const CLUB_DATA = {
         <h2>Transitioning to AI</h2>
         <p>AI Engineering is more than just running models. It's about data pipelines, model evaluation, and building scalable systems.</p>
         <h2>Key Resources</h2>
-        <p>Refer to the <a href="https://www.freecodecamp.org/news/the-ai-engineering-handbook-how-to-start-a-career-and-excel-as-an-ai-engineer/" target="_blank">freeCodeCamp AI Engineering Handbook</a> for a deep dive.</p>
+        <p>Refer to the <a href="https://www.freecodecamp.org/news/the-ai-engineering-handbook-how-to-start-a-career-and-excel-as-an-ai-engineer/" target="_blank" rel="noopener noreferrer">freeCodeCamp AI Engineering Handbook</a> for a deep dive.</p>
       `
     },
     {
@@ -248,7 +258,7 @@ const CLUB_DATA = {
       content: `
         <h2>What is Claude Code?</h2>
         <p>Claude Code is an agentic coding tool that reads codebases, edits files, and runs commands, integrating deeply with development workflows.</p>
-        <p>Learn more at the <a href="https://code.claude.com/docs/en/overview" target="_blank">Claude Code Docs</a>.</p>
+        <p>Learn more at the <a href="https://code.claude.com/docs/en/overview" target="_blank" rel="noopener noreferrer">Claude Code Docs</a>.</p>
       `
     },
     {
@@ -296,8 +306,8 @@ const CLUB_DATA = {
         <p>Mastering the MERN stack requires a solid understanding of component lifecycle and asynchronous event loops.</p>
         <h2>Official Documentation</h2>
         <ul>
-          <li><a href="https://react.dev/" target="_blank">React.dev</a></li>
-          <li><a href="https://nodejs.org/en/docs" target="_blank">Node.js Docs</a></li>
+          <li><a href="https://react.dev/" target="_blank" rel="noopener noreferrer">React.dev</a></li>
+          <li><a href="https://nodejs.org/en/docs" target="_blank" rel="noopener noreferrer">Node.js Docs</a></li>
         </ul>
         <h2>Tutorial Highlights</h2>
         <p>Check out "Every React Concept Explained in 12 Minutes" and "Node.js Ultimate Beginner’s Guide" on YouTube for rapid learning.</p>
@@ -1235,18 +1245,20 @@ function renderTeamCards(data) {
     return `<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-secondary);">No members found matching your criteria.</div>`;
   }
 
-  return data.map((m, i) => `
-    <div class="glass-card team-card reveal" data-category="${m.category}" style="animation-delay: ${Math.min(i * 0.05, 1)}s">
-      <div class="avatar" style="background: var(--accent-gradient); color: white;">${m.name.split(' ').map(n => n[0]).join('')}</div>
-      <h3 style="margin-top: 1rem; font-size: 1.1rem;">${m.name}</h3>
-      <div class="role" style="color: var(--accent-1); font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem;">${m.role}</div>
-      <div class="dept" style="font-size: 0.8rem; opacity: 0.8;">${m.dept} • ${m.class}</div>
+  return data.map((m, i) => {
+    const initials = m.name.split(' ').map(n => n[0]).join('');
+    return `
+    <div class="glass-card team-card reveal" data-category="${escapeHtml(m.category)}" style="animation-delay: ${Math.min(i * 0.05, 1)}s">
+      <div class="avatar" style="background: var(--accent-gradient); color: white;">${escapeHtml(initials)}</div>
+      <h3 style="margin-top: 1rem; font-size: 1.1rem;">${escapeHtml(m.name)}</h3>
+      <div class="role" style="color: var(--accent-1); font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem;">${escapeHtml(m.role)}</div>
+      <div class="dept" style="font-size: 0.8rem; opacity: 0.8;">${escapeHtml(m.dept)} • ${escapeHtml(m.class)}</div>
       <div class="team-footer" style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--glass-border); display: flex; gap: 1rem; justify-content: center;">
-         <a href="mailto:${m.email}" title="${m.email}" style="font-size: 1.1rem; text-decoration: none;">📧</a>
-         ${m.mobile ? `<a href="tel:${m.mobile}" title="${m.mobile}" style="font-size: 1.1rem; text-decoration: none;">📱</a>` : ''}
+         <a href="mailto:${encodeURIComponent(m.email)}" title="${escapeHtml(m.email)}" style="font-size: 1.1rem; text-decoration: none;">📧</a>
       </div>
     </div>
-  `).join('');
+  `;
+  }).join('');
 }
 
 function renderJoinPage(app) {
@@ -1351,11 +1363,11 @@ function renderJoinPage(app) {
               <div style="margin-top: 1.5rem;">
                 <h4 style="margin-bottom: 0.75rem; font-size: 0.9rem;">Follow Us</h4>
                 <div class="social-links">
-                  <a href="https://github.com" class="social-link" target="_blank" rel="noopener" title="GitHub">🐙</a>
-                  <a href="https://linkedin.com" class="social-link" target="_blank" rel="noopener" title="LinkedIn">💼</a>
-                  <a href="https://instagram.com" class="social-link" target="_blank" rel="noopener" title="Instagram">📸</a>
-                  <a href="https://twitter.com" class="social-link" target="_blank" rel="noopener" title="Twitter">🐦</a>
-                  <a href="https://discord.com" class="social-link" target="_blank" rel="noopener" title="Discord">💬</a>
+                  <a href="https://github.com" class="social-link" target="_blank" rel="noopener noreferrer" title="GitHub">🐙</a>
+                  <a href="https://linkedin.com" class="social-link" target="_blank" rel="noopener noreferrer" title="LinkedIn">💼</a>
+                  <a href="https://instagram.com" class="social-link" target="_blank" rel="noopener noreferrer" title="Instagram">📸</a>
+                  <a href="https://twitter.com" class="social-link" target="_blank" rel="noopener noreferrer" title="Twitter">🐦</a>
+                  <a href="https://discord.com" class="social-link" target="_blank" rel="noopener noreferrer" title="Discord">💬</a>
                 </div>
               </div>
             </div>

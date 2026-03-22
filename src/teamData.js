@@ -1,3 +1,8 @@
+/**
+ * Team roster — contains PII (email, mobile, PRN). The site UI exposes email contact only on cards;
+ * mobile remains in this file for club records. Do not commit unrelated secrets here; follow your
+ * institution’s data-handling policy for public listings.
+ */
 export const TEAM_DATA = [
     { sr: 1, role: 'President', name: 'Mihir Pande', class: 'Final Year', dept: 'CS', prn: '122B1B200', mobile: '8329003719', email: 'mihir.pande22@pccoepune.org', category: 'core' },
     { sr: 2, role: 'Vice President', name: 'Siddhesh Patil', class: 'Final Year', dept: 'CS', prn: '122B1B218', mobile: '7058996618', email: 'siddhesh.patil221@pccoepune.org', category: 'core' },
@@ -13,7 +18,7 @@ export const TEAM_DATA = [
     { sr: 12, role: 'Associate Member', name: 'Ranjeet Chaudhary', class: 'Final Year', dept: 'CS', prn: '122B1B045', mobile: '9766472239', email: 'ranjeet.chaudhary22@pccoepune.org', category: 'associate' },
     { sr: 13, role: 'Associate Member', name: 'Indrajeet Bhosale', class: 'Final Year', dept: 'CS', prn: '122B1B035', mobile: '9325615588', email: 'indrajeet.bhosale22@pccoepune.org', category: 'associate' },
     { sr: 14, role: 'Associate Member', name: 'Vineet Prashant', class: 'Final Year', dept: 'CS', prn: '122B1B230', mobile: '9766472239', email: 'vineet.prashant22@pccoepune.org', category: 'associate' },
-    { sr: 15, role: 'Associate Member', name: 'AdiThird Yeara Patil', class: 'Final Year', dept: 'Mech', prn: '122B2B311', mobile: '9699595276', email: 'aditya.patil22@pccoepune.org', category: 'associate' },
+    { sr: 15, role: 'Associate Member', name: 'Aditya Patil', class: 'Final Year', dept: 'Mech', prn: '122B2B311', mobile: '9699595276', email: 'aditya.patil22@pccoepune.org', category: 'associate' },
     { sr: 16, role: 'Associate Member', name: 'Mandip Bhattarai', class: 'Final Year', dept: 'CS', prn: '122B1B028', mobile: '9841307618', email: 'mandip.bhattarai22@pccoepune.org', category: 'associate' },
     { sr: 17, role: 'Associate Member', name: 'Pranav Patil', class: 'Final Year', dept: 'CS', prn: '122B1B215', mobile: '9529846876', email: 'pranav.patil221@pccoepune.org', category: 'associate' },
     { sr: 18, role: 'Associate Member', name: 'Sourav Narvekar', class: 'Final Year', dept: 'CS', prn: '122B1B035', mobile: '', email: 'sourav.narvekar22@pccopune.org', category: 'associate' },
