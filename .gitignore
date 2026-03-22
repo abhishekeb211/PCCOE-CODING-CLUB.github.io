@@ -11,6 +11,15 @@ node_modules
 dist
 dist-ssr
 *.local
+.env
+.env.*
+!.env.example
+Thumbs.db
+Desktop.ini
+*.pem
+*.key
+coverage
+.cache
 
 # Editor directories and files
 .vscode/*

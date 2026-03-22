@@ -432,6 +432,11 @@ const routes = {
 };
 let revealObserver = null;
 let themeInitialized = false;
+let appDelegationInitialized = false;
+let tiltDelegationInitialized = false;
+let tiltActiveCard = null;
+
+const teamListState = { filter: 'all', search: '' };
 
 function getRoute() {
   const hash = window.location.hash || '#/';
@@ -468,8 +473,7 @@ function router() {
   // Defer non-critical interactivity setup until next paint
   requestAnimationFrame(() => {
     setupScrollReveal();
-    setupInteractions();
-    setupTiltCards();
+    setupCounters();
   });
 }
 
@@ -556,45 +560,72 @@ function setupScrollReveal() {
 
 // ========================= INTERACTIONS =========================
 
-function setupInteractions() {
-  // Animated counters
+function setupCounters() {
   document.querySelectorAll('[data-count]').forEach(el => {
-    const target = parseInt(el.dataset.count);
+    const target = parseInt(el.dataset.count, 10);
+    if (Number.isNaN(target)) return;
     animateCounter(el, target);
   });
+}
 
-  // FAQ accordions
-  document.querySelectorAll('.faq-question').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = btn.closest('.faq-item');
+function updateTeamListDisplay() {
+  const container = document.getElementById('team-container');
+  if (!container) return;
+
+  const filtered = TEAM_DATA.filter(m => {
+    const matchesFilter = teamListState.filter === 'all' || m.category === teamListState.filter;
+    const q = teamListState.search.toLowerCase();
+    const matchesSearch = !q ||
+      m.name.toLowerCase().includes(q) ||
+      m.role.toLowerCase().includes(q) ||
+      m.dept.toLowerCase().includes(q);
+    return matchesFilter && matchesSearch;
+  });
+
+  container.innerHTML = renderTeamCards(filtered);
+  requestAnimationFrame(() => {
+    setupScrollReveal();
+  });
+}
+
+function initAppEventDelegation() {
+  if (appDelegationInitialized) return;
+  appDelegationInitialized = true;
+
+  const app = document.getElementById('app');
+  if (!app) return;
+
+  app.addEventListener('click', (e) => {
+    const faqBtn = e.target.closest('.faq-question');
+    if (faqBtn && app.contains(faqBtn)) {
+      const item = faqBtn.closest('.faq-item');
+      if (!item || !app.contains(item)) return;
       const answer = item.querySelector('.faq-answer');
+      if (!answer) return;
       const isActive = item.classList.contains('active');
 
-      // Close all
-      document.querySelectorAll('.faq-item').forEach(i => {
+      app.querySelectorAll('.faq-item').forEach(i => {
         i.classList.remove('active');
-        i.querySelector('.faq-answer').style.maxHeight = '0';
+        const a = i.querySelector('.faq-answer');
+        if (a) a.style.maxHeight = '0';
       });
 
-      // Open clicked if not already active
       if (!isActive) {
         item.classList.add('active');
         answer.style.maxHeight = answer.scrollHeight + 'px';
       }
-    });
-  });
+      return;
+    }
 
-  // Filter buttons
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const filter = btn.dataset.filter;
-      const parent = btn.closest('.section');
+    const filterBtn = e.target.closest('.filter-btn');
+    if (filterBtn && app.contains(filterBtn)) {
+      const filter = filterBtn.dataset.filter;
+      const parent = filterBtn.closest('.section');
+      if (!parent) return;
 
-      // Update active button
       parent.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      filterBtn.classList.add('active');
 
-      // Filter cards
       const cards = parent.querySelectorAll('[data-category]');
       cards.forEach(card => {
         if (filter === 'all' || card.dataset.category === filter) {
@@ -604,15 +635,31 @@ function setupInteractions() {
           card.style.display = 'none';
         }
       });
-    });
+      return;
+    }
+
+    const chip = e.target.closest('.chip');
+    if (chip && chip.closest('.team-controls') && app.contains(chip)) {
+      app.querySelectorAll('.team-controls .chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      teamListState.filter = chip.dataset.filter || 'all';
+      updateTeamListDisplay();
+    }
   });
 
-  // Form submission
-  const form = document.getElementById('join-form');
-  if (form) {
-    form.addEventListener('submit', (e) => {
+  app.addEventListener('input', (e) => {
+    if (e.target.id === 'team-search' && app.contains(e.target)) {
+      teamListState.search = e.target.value;
+      updateTeamListDisplay();
+    }
+  });
+
+  app.addEventListener('submit', (e) => {
+    if (e.target.id === 'join-form' && app.contains(e.target)) {
       e.preventDefault();
+      const form = e.target;
       const btn = form.querySelector('.btn-primary');
+      if (!btn) return;
       btn.textContent = '✓ Registered Successfully!';
       btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
       setTimeout(() => {
@@ -620,14 +667,20 @@ function setupInteractions() {
         btn.style.background = '';
         form.reset();
       }, 3000);
-    });
-  }
+    }
+  });
 }
 
 function animateCounter(el, target) {
+  if (el.dataset.counterBound === '1') return;
+  el.dataset.counterBound = '1';
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
+        if (el.dataset.counterStarted === '1') return;
+        el.dataset.counterStarted = '1';
+
         let current = 0;
         const increment = target / 60;
         const suffix = el.dataset.suffix || '';
@@ -1173,8 +1226,8 @@ function renderTeamPage(app) {
     </section>
   `;
 
-  // Attach dynamic logic
-  setupTeamInteractions();
+  teamListState.filter = 'all';
+  teamListState.search = '';
 }
 
 function renderTeamCards(data) {
@@ -1194,46 +1247,6 @@ function renderTeamCards(data) {
       </div>
     </div>
   `).join('');
-}
-
-function setupTeamInteractions() {
-  const searchInput = document.getElementById('team-search');
-  const chips = document.querySelectorAll('.chip');
-  const container = document.getElementById('team-container');
-
-  let currentFilter = 'all';
-  let currentSearch = '';
-
-  const updateDisplay = () => {
-    const filtered = TEAM_DATA.filter(m => {
-      const matchesFilter = currentFilter === 'all' || m.category === currentFilter;
-      const matchesSearch = m.name.toLowerCase().includes(currentSearch.toLowerCase()) ||
-        m.role.toLowerCase().includes(currentSearch.toLowerCase()) ||
-        m.dept.toLowerCase().includes(currentSearch.toLowerCase());
-      return matchesFilter && matchesSearch;
-    });
-
-    container.innerHTML = renderTeamCards(filtered);
-    // Trigger effects for newly rendered cards
-    requestAnimationFrame(() => {
-      setupScrollReveal();
-      setupTiltCards();
-    });
-  };
-
-  searchInput.addEventListener('input', (e) => {
-    currentSearch = e.target.value;
-    updateDisplay();
-  });
-
-  chips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      chips.forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      currentFilter = chip.dataset.filter;
-      updateDisplay();
-    });
-  });
 }
 
 function renderJoinPage(app) {
@@ -1628,22 +1641,52 @@ function initTypingEffect() {
 
 // ========================= TILT EFFECT =========================
 
-function setupTiltCards() {
-  document.querySelectorAll('.glass-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const rotateX = ((y - centerY) / centerY) * -3;
-      const rotateY = ((x - centerX) / centerX) * 3;
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-    });
+function initTiltDelegation() {
+  if (tiltDelegationInitialized) return;
+  const app = document.getElementById('app');
+  if (!app) return;
 
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
-    });
+  const coarse = window.matchMedia('(pointer: coarse)').matches;
+  const narrow = window.matchMedia('(max-width: 768px)').matches;
+  if (coarse || narrow) {
+    tiltDelegationInitialized = true;
+    return;
+  }
+
+  tiltDelegationInitialized = true;
+
+  const applyTilt = (card, e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -3;
+    const rotateY = ((x - centerX) / centerX) * 3;
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+  };
+
+  app.addEventListener('mousemove', (e) => {
+    const card = e.target.closest('.glass-card');
+    if (!card || !app.contains(card)) {
+      if (tiltActiveCard) {
+        tiltActiveCard.style.transform = '';
+        tiltActiveCard = null;
+      }
+      return;
+    }
+    if (tiltActiveCard && tiltActiveCard !== card) {
+      tiltActiveCard.style.transform = '';
+    }
+    tiltActiveCard = card;
+    applyTilt(card, e);
+  });
+
+  app.addEventListener('mouseleave', () => {
+    if (tiltActiveCard) {
+      tiltActiveCard.style.transform = '';
+      tiltActiveCard = null;
+    }
   });
 }
 
@@ -1696,6 +1739,8 @@ function init() {
 
   // Route handler
   initTheme();
+  initAppEventDelegation();
+  initTiltDelegation();
   window.addEventListener('hashchange', router);
   router();
 
