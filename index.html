@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a1a" />
   <title>PCCoE Coding Club — Code. Compete. Create.</title>
   <meta name="description"
     content="PCCoE Coding Club is a student-driven community focused on competitive programming, hackathons, cybersecurity, open-source development, and research." />
@@ -19,18 +20,34 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
     rel="stylesheet" />
+  <link rel="preload" as="image" href="/images/ai-hero.png" fetchpriority="high" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="stylesheet" href="/src/style.css" />
 
   <!-- Google tag (gtag.js) - REPLACE G-XXXXXXXXXX WITH YOUR ACTUAL MEASUREMENT ID -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
+    function gtag() { window.dataLayer.push(arguments); }
+    const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+
+    function loadAnalytics() {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+      script.onload = () => {
+        gtag('js', new Date());
+        gtag('config', GA_MEASUREMENT_ID);
+      };
+      document.head.appendChild(script);
+    }
+
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(loadAnalytics, { timeout: 2000 });
+    } else {
+      window.addEventListener('load', loadAnalytics, { once: true });
+    }
   </script>
 </head>
 
@@ -45,7 +62,7 @@
   <header id="main-header">
     <nav class="navbar">
       <a href="#/" class="nav-logo">
-        <img src="/images/logo.png" alt="PCCoE Coding Club" class="logo-img" />
+        <img src="/images/logo.png" alt="PCCoE Coding Club" class="logo-img" width="60" height="60" fetchpriority="high" decoding="async" />
         <span class="logo-text">PCCOE <span class="accent-text">CODING CLUB</span></span>
       </a>
       <ul class="nav-links" id="nav-links">
@@ -64,7 +81,7 @@
         <button class="theme-btn" data-theme-set="hacker" title="Hacker Mode">📟</button>
       </div>
 
-      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-controls="nav-links" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </nav>
@@ -78,7 +95,7 @@
     <div class="footer-container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="footer-logo"><img src="/images/logo.png" alt="" class="footer-logo-img" /> PCCOE <span
+          <div class="footer-logo"><img src="/images/logo.png" alt="" class="footer-logo-img" width="60" height="60" loading="lazy" decoding="async" /> PCCOE <span
               class="accent-text">CODING CLUB</span></div>
           <p class="footer-tagline">Code. Compete. Create.</p>
           <p class="footer-desc">A student-driven community focused on competitive programming, hackathons,

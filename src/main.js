@@ -430,6 +430,8 @@ const routes = {
   '/team': renderTeamPage,
   '/join': renderJoinPage
 };
+let revealObserver = null;
+let themeInitialized = false;
 
 function getRoute() {
   const hash = window.location.hash || '#/';
@@ -454,126 +456,107 @@ function router() {
     render = routes[path] || routes['/'];
   }
 
-  // Page transition
-  app.style.opacity = '0';
-  app.style.transform = 'translateY(10px)';
+  render(app, params);
 
-  setTimeout(() => {
-    render(app, params);
-    app.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-    app.style.opacity = '1';
-    app.style.transform = 'translateY(0)';
+  // Update active nav (handle nested routes like /blog/id)
+  const baseNavPath = path.startsWith('/blog/') ? '/blogs' : path;
+  updateActiveNav(baseNavPath);
 
-    // Update active nav (handle nested routes like /blog/id)
-    const baseNavPath = path.startsWith('/blog/') ? '/blogs' : path;
-    updateActiveNav(baseNavPath);
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'auto' });
 
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: 'instant' });
+  // Defer non-critical interactivity setup until next paint
+  requestAnimationFrame(() => {
+    setupScrollReveal();
+    setupInteractions();
+    setupTiltCards();
+  });
+}
 
-    // Setup scroll reveals
-    setTimeout(setupScrollReveal, 100);
+// ========================= THEME SYSTEM =========================
 
-    // Setup interactive elements
-    setTimeout(setupInteractions, 200);
+function initTheme() {
+  if (themeInitialized) return;
+  themeInitialized = true;
 
-    // Setup 3D tilt on cards
-    setTimeout(setupTiltCards, 300);
-  }, 200);
-  // Setup theme
-  initTheme();
+  const savedTheme = localStorage.getItem('pccoe-theme') || 'glass';
+  setTheme(savedTheme);
 
-  // ========================= THEME SYSTEM =========================
-
-  function initTheme() {
-    const savedTheme = localStorage.getItem('pccoe-theme') || 'glass';
-    setTheme(savedTheme);
-
-    document.querySelectorAll('.theme-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const theme = btn.dataset.themeSet;
-        setTheme(theme);
-      });
+  document.querySelectorAll('.theme-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const theme = btn.dataset.themeSet;
+      setTheme(theme);
     });
-  }
+  });
+}
 
-  function setTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('pccoe-theme', theme);
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('pccoe-theme', theme);
 
-    // Update button active states
-    document.querySelectorAll('.theme-btn').forEach(btn => {
-      if (btn.dataset.themeSet === theme) {
-        btn.classList.add('active');
-      } else {
-        btn.classList.remove('active');
-      }
-    });
-
-    // Special handling for particles based on theme
-    if (typeof updateParticles === 'function') {
-      updateParticles(theme);
+  // Update button active states
+  document.querySelectorAll('.theme-btn').forEach(btn => {
+    if (btn.dataset.themeSet === theme) {
+      btn.classList.add('active');
     } else {
-      const canvas = document.getElementById('particles-canvas');
-      if (canvas) {
-        if (theme === 'light') {
-          canvas.style.opacity = '0.05';
-        } else {
-          canvas.style.opacity = '1';
-        }
-      }
+      btn.classList.remove('active');
+    }
+  });
+
+  // Special handling for particles based on theme
+  if (typeof updateParticles === 'function') {
+    updateParticles(theme);
+  } else {
+    const canvas = document.getElementById('particles-canvas');
+    if (canvas) {
+      canvas.style.opacity = theme === 'light' ? '0.05' : '1';
     }
   }
+}
 
-  function updateActiveNav(path) {
-    document.querySelectorAll('.nav-link').forEach(link => {
-      const href = link.getAttribute('href');
-      if (href === '#' + path || (path === '/' && href === '#/')) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
-  }
+function updateActiveNav(path) {
+  document.querySelectorAll('.nav-link').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === '#' + path || (path === '/' && href === '#/')) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
 }
 
 // ========================= SCROLL REVEAL =========================
 
 function setupScrollReveal() {
   const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  if (!reveals.length) return;
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    reveals.forEach(el => el.classList.add('revealed'));
+    return;
+  }
 
-  reveals.forEach(el => observer.observe(el));
+  if (!revealObserver) {
+    revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  }
+
+  reveals.forEach(el => {
+    if (!el.classList.contains('revealed')) {
+      revealObserver.observe(el);
+    }
+  });
 }
 
 // ========================= INTERACTIONS =========================
 
 function setupInteractions() {
-  // Hamburger menu
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
-  if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('open');
-    });
-
-    // Close on link click
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('open');
-      });
-    });
-  }
-
   // Animated counters
   document.querySelectorAll('[data-count]').forEach(el => {
     const target = parseInt(el.dataset.count);
@@ -726,7 +709,7 @@ function renderHomePage(app) {
         </div>
 
         <div class="hero-image-side reveal delay-3" style="flex: 1; display: flex; justify-content: center; align-items: center;">
-          <img src="./images/ai-hero.png" alt="Futuristic Coding Workstation" style="width: 100%; max-width: 600px; border-radius: 20px; box-shadow: 0 0 40px rgba(0, 212, 255, 0.15), 0 0 80px rgba(124, 58, 237, 0.1); border: 1px solid rgba(255, 255, 255, 0.05); animation: float 6s ease-in-out infinite;" />
+          <img src="./images/ai-hero.png" alt="Futuristic Coding Workstation" width="1200" height="800" fetchpriority="high" loading="eager" decoding="async" style="width: 100%; max-width: 600px; border-radius: 20px; box-shadow: 0 0 40px rgba(0, 212, 255, 0.15), 0 0 80px rgba(124, 58, 237, 0.1); border: 1px solid rgba(255, 255, 255, 0.05); animation: float 6s ease-in-out infinite;" />
         </div>
 
       </div>
@@ -763,13 +746,13 @@ function renderAboutPage(app) {
             </p>
           </div>
           <div style="flex: 1; display: flex; justify-content: center;">
-            <img src="./images/about-illustration.png" alt="Collaborative Hacker Community" style="width: 100%; max-width: 500px; border-radius: 20px; box-shadow: 0 0 50px rgba(124, 58, 237, 0.15); animation: float 6s ease-in-out infinite;" />
+            <img src="./images/about-illustration.png" alt="Collaborative Hacker Community" width="1000" height="1000" loading="lazy" decoding="async" style="width: 100%; max-width: 500px; border-radius: 20px; box-shadow: 0 0 50px rgba(124, 58, 237, 0.15); animation: float 6s ease-in-out infinite;" />
           </div>
         </div>
 
         <div class="glass-card reveal" style="padding: 3rem; margin-bottom: 3rem; text-align: center;">
           <h2 style="margin-bottom: 2rem; font-size: 1.5rem;">🚀 Technology Landscape</h2>
-          <img src="./images/tech-wordcloud.png" alt="Technology Word Cloud" style="width: 100%; max-width: 800px; border-radius: 12px;" loading="lazy" />
+          <img src="./images/tech-wordcloud.png" alt="Technology Word Cloud" width="1600" height="900" style="width: 100%; max-width: 800px; border-radius: 12px;" loading="lazy" decoding="async" />
         </div>
 
         <div class="about-grid" style="margin-bottom: 3rem;">
@@ -829,7 +812,7 @@ function renderAboutPage(app) {
             `).join('')}
           </div>
           <div style="margin-top: 3rem;" class="reveal">
-            <img src="./images/poster.png" alt="PCCoE Coding Club Poster" class="poster-display" loading="lazy" />
+            <img src="./images/poster.png" alt="PCCoE Coding Club Poster" width="1000" height="1414" class="poster-display" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>
@@ -863,7 +846,7 @@ function renderAchievementsPage(app) {
         <div class="achievements-grid">
           ${achievements.map((a, i) => `
             <div class="glass-card achievement-card reveal delay-${(i % 4) + 1}" data-category="${a.category}">
-              ${a.image ? `<img src="${a.image}" alt="${a.title}" class="card-image" loading="lazy" />` : ''}
+              ${a.image ? `<img src="${a.image}" alt="${a.title}" class="card-image" loading="lazy" decoding="async" />` : ''}
               <div class="card-badge">${a.badge}</div>
               <h3>${a.title}</h3>
               <p>${a.desc}</p>
@@ -909,7 +892,7 @@ function renderEventsPage(app) {
         <div class="events-grid">
           ${upcoming.map((e, i) => `
             <div class="glass-card event-card reveal delay-${i + 1}">
-              ${e.image ? `<img src="${e.image}" alt="${e.title}" class="card-image" loading="lazy" />` : ''}
+              ${e.image ? `<img src="${e.image}" alt="${e.title}" class="card-image" loading="lazy" decoding="async" />` : ''}
               <div class="event-date">📅 ${e.date}</div>
               <h3>${e.title}</h3>
               <p>${e.desc}</p>
@@ -929,7 +912,7 @@ function renderEventsPage(app) {
         <div class="events-grid">
           ${past.map((e, i) => `
             <div class="glass-card event-card reveal delay-${i + 1}">
-              ${e.image ? `<img src="${e.image}" alt="${e.title}" class="card-image" loading="lazy" />` : ''}
+              ${e.image ? `<img src="${e.image}" alt="${e.title}" class="card-image" loading="lazy" decoding="async" />` : ''}
               <div class="event-date">📅 ${e.date}</div>
               <h3>${e.title}</h3>
               <p>${e.desc}</p>
@@ -1231,9 +1214,11 @@ function setupTeamInteractions() {
     });
 
     container.innerHTML = renderTeamCards(filtered);
-    // Trigger scroll reveal for new elements
-    setTimeout(setupScrollReveal, 100);
-    setTimeout(setupTiltCards, 200);
+    // Trigger effects for newly rendered cards
+    requestAnimationFrame(() => {
+      setupScrollReveal();
+      setupTiltCards();
+    });
   };
 
   searchInput.addEventListener('input', (e) => {
@@ -1336,7 +1321,7 @@ function renderJoinPage(app) {
               <h2 style="font-size: 1.4rem; text-align: center;">📱 Quick Registration</h2>
               <div class="qr-section">
                 <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">Scan the QR to join our community group instantly.</p>
-              <img src="./images/qr-code.png" alt="Join Community QR" style="width: 150px; height: 150px; border-radius: 12px; margin: 0 auto; display: block;" />
+              <img src="./images/qr-code.png" alt="Join Community QR" width="300" height="300" loading="lazy" decoding="async" style="width: 150px; height: 150px; border-radius: 12px; margin: 0 auto; display: block;" />
             </div>
           </div>
 
@@ -1391,10 +1376,25 @@ function renderJoinPage(app) {
 function initParticles() {
   const canvas = document.getElementById('particles-canvas');
   if (!canvas) return;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (prefersReducedMotion.matches) {
+    canvas.style.display = 'none';
+    window.updateParticles = () => { };
+    return;
+  }
+
   const ctx = canvas.getContext('2d');
   let particles = [];
   let mouse = { x: -1000, y: -1000 };
-  let animationId;
+  let animationId = null;
+  let resizeTimer = null;
+  let isMobileViewport = false;
+  let drawConnections = true;
+
+  function updateParticleTuning() {
+    isMobileViewport = window.matchMedia('(max-width: 768px)').matches;
+    drawConnections = !isMobileViewport && window.devicePixelRatio > 1.25;
+  }
 
   function resize() {
     canvas.width = window.innerWidth;
@@ -1403,7 +1403,9 @@ function initParticles() {
 
   function createParticles() {
     particles = [];
-    const count = Math.min(Math.floor((canvas.width * canvas.height) / 15000), 80);
+    const density = isMobileViewport ? 24000 : 15000;
+    const maxCount = isMobileViewport ? 30 : 80;
+    const count = Math.min(Math.floor((canvas.width * canvas.height) / density), maxCount);
     const theme = document.documentElement.getAttribute('data-theme') || 'glass';
     const colors = {
       glass: ['0, 212, 255', '124, 58, 237'],
@@ -1460,21 +1462,23 @@ function initParticles() {
       ctx.fillStyle = `rgba(${p.color}, ${p.opacity})`;
       ctx.fill();
 
-      // Connect nearby particles
-      for (let j = i + 1; j < particles.length; j++) {
-        const p2 = particles[j];
-        const ddx = p.x - p2.x;
-        const ddy = p.y - p2.y;
-        const d = Math.sqrt(ddx * ddx + ddy * ddy);
-        if (d < 120) {
-          const theme = document.documentElement.getAttribute('data-theme') || 'glass';
-          const strokeColor = theme === 'hacker' ? '255, 0, 0' : (theme === 'light' ? '26, 86, 219' : '0, 212, 255');
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(p2.x, p2.y);
-          ctx.strokeStyle = `rgba(${strokeColor}, ${0.1 * (1 - d / 120)})`;
-          ctx.lineWidth = 0.5;
-          ctx.stroke();
+      if (drawConnections) {
+        // Connect nearby particles
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const ddx = p.x - p2.x;
+          const ddy = p.y - p2.y;
+          const d = Math.sqrt(ddx * ddx + ddy * ddy);
+          if (d < 120) {
+            const theme = document.documentElement.getAttribute('data-theme') || 'glass';
+            const strokeColor = theme === 'hacker' ? '255, 0, 0' : (theme === 'light' ? '26, 86, 219' : '0, 212, 255');
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = `rgba(${strokeColor}, ${0.1 * (1 - d / 120)})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
         }
       }
     });
@@ -1488,10 +1492,26 @@ function initParticles() {
   });
 
   window.addEventListener('resize', () => {
-    resize();
-    createParticles();
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      updateParticleTuning();
+      resize();
+      createParticles();
+    }, 180);
   });
 
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && animationId) {
+      cancelAnimationFrame(animationId);
+      animationId = null;
+      return;
+    }
+    if (!document.hidden && !animationId) {
+      drawParticles();
+    }
+  });
+
+  updateParticleTuning();
   resize();
   createParticles();
   drawParticles();
@@ -1502,18 +1522,29 @@ function initParticles() {
 function initCursorGlow() {
   const glow = document.getElementById('cursor-glow');
   if (!glow) return;
+  const supportsFinePointer = window.matchMedia('(pointer: fine)').matches;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!supportsFinePointer || prefersReducedMotion) return;
 
   let targetX = 0, targetY = 0;
   let currentX = 0, currentY = 0;
+  let animationId = null;
 
   window.addEventListener('mousemove', (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
     glow.classList.add('visible');
+    if (!animationId) {
+      animationId = requestAnimationFrame(animate);
+    }
   });
 
   window.addEventListener('mouseleave', () => {
     glow.classList.remove('visible');
+    if (animationId) {
+      cancelAnimationFrame(animationId);
+      animationId = null;
+    }
   });
 
   function animate() {
@@ -1521,10 +1552,14 @@ function initCursorGlow() {
     currentY += (targetY - currentY) * 0.08;
     glow.style.left = currentX + 'px';
     glow.style.top = currentY + 'px';
-    requestAnimationFrame(animate);
+    const dx = Math.abs(targetX - currentX);
+    const dy = Math.abs(targetY - currentY);
+    if (dx > 0.2 || dy > 0.2) {
+      animationId = requestAnimationFrame(animate);
+      return;
+    }
+    animationId = null;
   }
-
-  animate();
 }
 
 // ========================= SCROLL TO TOP =========================
@@ -1539,7 +1574,7 @@ function initScrollToTop() {
     } else {
       btn.classList.remove('visible');
     }
-  });
+  }, { passive: true });
 
   btn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1618,17 +1653,34 @@ function init() {
   // Hamburger toggle
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('nav-links');
+  const setNavState = (isOpen) => {
+    hamburger.classList.toggle('active', isOpen);
+    navLinks.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+  };
+  setNavState(false);
 
   hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navLinks.classList.toggle('open');
+    setNavState(!navLinks.classList.contains('open'));
   });
 
   // Close mobile nav on link click
   navLinks.addEventListener('click', (e) => {
     if (e.target.classList.contains('nav-link')) {
-      hamburger.classList.remove('active');
-      navLinks.classList.remove('open');
+      setNavState(false);
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!navLinks.classList.contains('open')) return;
+    if (navLinks.contains(e.target) || hamburger.contains(e.target)) return;
+    setNavState(false);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+      setNavState(false);
+      hamburger.focus();
     }
   });
 
@@ -1640,9 +1692,10 @@ function init() {
     } else {
       header.classList.remove('scrolled');
     }
-  });
+  }, { passive: true });
 
   // Route handler
+  initTheme();
   window.addEventListener('hashchange', router);
   router();
 

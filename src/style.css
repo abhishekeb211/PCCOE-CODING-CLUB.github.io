@@ -81,10 +81,6 @@ body {
   transition: background var(--transition-theme), color var(--transition-theme);
 }
 
-* {
-  transition: border-color var(--transition-theme), background-color var(--transition-theme), box-shadow var(--transition-theme);
-}
-
 a {
   color: var(--accent-1);
   text-decoration: none;
@@ -207,8 +203,8 @@ h6 {
 /* --- Scroll Reveal --- */
 #scroll-top {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+  right: calc(1.25rem + env(safe-area-inset-right, 0px));
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -267,6 +263,7 @@ h6 {
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--glass-border);
   transition: background var(--transition-theme), border-color var(--transition-theme), box-shadow var(--transition-theme);
+  padding-top: env(safe-area-inset-top, 0px);
 }
 
 #main-header.scrolled {
@@ -655,6 +652,8 @@ h6 {
 
 .section {
   padding: 6rem 0;
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 900px;
 }
 
 .section-header {
@@ -1820,6 +1819,7 @@ h6 {
 /* --- Page Transition --- */
 #app {
   animation: fadeIn 0.4s ease;
+  min-height: calc(100vh - var(--nav-height));
 }
 
 /* --- RESPONSIVE --- */
@@ -1851,7 +1851,7 @@ h6 {
     background: rgba(10, 10, 26, 0.98);
     backdrop-filter: blur(20px);
     flex-direction: column;
-    padding: calc(var(--nav-height) + 2rem) 2rem 2rem;
+    padding: calc(var(--nav-height) + 2rem + env(safe-area-inset-top, 0px)) calc(1.5rem + env(safe-area-inset-right, 0px)) calc(2rem + env(safe-area-inset-bottom, 0px)) 1.5rem;
     gap: 0.5rem;
     transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border-left: 1px solid var(--glass-border);
@@ -1976,5 +1976,43 @@ h6 {
   .stats-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+}
+
+@media (pointer: coarse) {
+  #cursor-glow {
+    display: none;
+  }
+
+  .theme-btn,
+  .hamburger,
+  .nav-link {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  #particles-canvas {
+    opacity: 0.08;
+  }
+
+  .reveal,
+  .reveal-left,
+  .reveal-right {
+    opacity: 1;
+    transform: none;
   }
 }
